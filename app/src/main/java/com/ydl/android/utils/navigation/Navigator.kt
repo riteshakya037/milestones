@@ -14,6 +14,7 @@ import com.ydl.android.views.screens.landing.forgotpass.ForgotPasswordFragment
 import com.ydl.android.views.screens.landing.login.LoginFragment
 import com.ydl.android.views.screens.landing.register.RegisterFragment
 import com.ydl.android.views.screens.main.MainActivity
+import com.ydl.android.views.screens.main.MainFragment
 import com.ydl.android.views.screens.splash.SplashFragment
 import timber.log.Timber
 import javax.inject.Inject
@@ -43,6 +44,11 @@ class Navigator @Inject constructor() {
     fun getSplashFragment(context: Context): Fragment {
         Timber.tag(_tag).i("Attached: Splash Fragment to ${context::class.java.simpleName}")
         return SplashFragment.newInstance()
+    }
+
+    fun getMainFragment(context: Context): Fragment {
+        Timber.tag(_tag).i("Attached: Main Fragment to ${context::class.java.simpleName}")
+        return MainFragment.newInstance()
     }
 
     fun getSignUpFragment(context: Context): Fragment {

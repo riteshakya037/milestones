@@ -40,5 +40,6 @@ class MainActivity : BaseActivity() {
             currentGoalTxt.text = "${mList.getCompletedCount()}"
             totalGoalTxt.text = "/${mList.size}"
         }).subscribe()
+        mainScreenCreateGoal.setOnClickListener { navigator.navigateToCreateGoal(this@MainActivity) }
     }
 }

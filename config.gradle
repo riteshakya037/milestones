@@ -1,0 +1,49 @@
+ext.appConfig = [
+        applicationId    : 'com.ysl.milestones',
+        versionCode      : 1,
+        versionName      : "1.0",
+        buildToolsVersion: "27.0.3",
+        minSdkVersion    : 17,
+        targetSdkVersion : 27,
+        compileSdkVersion: 27,
+]
+
+ext.versions = [
+        supportLibs: '27.1.1',
+        kotlin     : '1.2.41',
+        dagger     : '2.11',
+        constraint : '1.1.0',
+        rxAndroid  : '2.0.2',
+        rxJava     : '2.1.12',
+
+        // Test Libraries
+        jUnit      : '4.12',
+        mockito    : '2.18.0',
+
+        // Development Libraries
+        leakCanary : '1.5.1',
+        timber     : '4.7.0'
+]
+
+ext.libraries = [
+        kotlin                  : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+        kotlinJdk               : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin",
+        supportAppCompat        : "com.android.support:appcompat-v7:$versions.supportLibs",
+        supportRecyclerView     : "com.android.support:recyclerview-v7:$versions.supportLibs",
+        constraintLayout        : "com.android.support.constraint:constraint-layout:$versions.constraint",
+        dagger                  : "com.google.dagger:dagger:$versions.dagger",
+        daggerCompiler          : "com.google.dagger:dagger-compiler:$versions.dagger",
+        rxAndroid               : "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid",
+        rxJava                  : "io.reactivex.rxjava2:rxjava:$versions.rxJava",
+]
+
+ext.testLibraries = [
+        jUnit  : "junit:junit:$versions.jUnit",
+        mockito: "org.mockito:mockito-core:$versions.mockito",
+]
+
+ext.devLibraries = [
+        timber    : "com.jakewharton.timber:timber:$versions.timber",
+        leakCanary: "com.squareup.leakcanary:leakcanary-android:${versions.leakCanary}"
+]
+

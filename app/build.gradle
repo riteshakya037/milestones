@@ -46,13 +46,17 @@ dependencies {
 
     implementation libraries.kotlinJdk
     implementation libraries.supportAppCompat
-    implementation libraries.supportRecyclerView
+    implementation libraries.supportDesign
     implementation libraries.constraintLayout
     implementation libraries.dagger
 
     implementation libraries.rxAndroid
     implementation libraries.rxJava
 
+    implementation libraries.firebaseCore
+    implementation libraries.firebaseAuth
+    implementation libraries.firebaseDatabase
+    implementation libraries.rxfirebase
 
     implementation devLibraries.timber
 
@@ -62,3 +66,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
+
+apply plugin: 'com.google.gms.google-services'

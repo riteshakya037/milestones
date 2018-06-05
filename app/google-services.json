@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1016676090953",
+    "firebase_url": "https://milestones-42241.firebaseio.com",
+    "project_id": "milestones-42241",
+    "storage_bucket": "milestones-42241.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016676090953:android:5caa9554d433abd5",
+        "android_client_info": {
+          "package_name": "com.ydl.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1016676090953-g519r28a6diop17qjaobi7c1fb31kjok.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "1016676090953-g519r28a6diop17qjaobi7c1fb31kjok.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpbrBW1i-tqwCml_f_CpwuNrDSn4sIX3Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

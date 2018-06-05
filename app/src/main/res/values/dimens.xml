@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="horizontal_margin">16dp</dimen>
+    <dimen name="vertical_margin">16dp</dimen>
+    <dimen name="vertical_margin_small">8dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="check_box_size">32dp</dimen>
+    <dimen name="list_item_margin_thin">8dp</dimen>
+    <dimen name="list_item_margin_thick">@dimen/horizontal_margin</dimen>
+    <dimen name="message_row_length">270dp</dimen>
+    <dimen name="expanded_toolbar_height">120dp</dimen>
+    <dimen name="horizontal_margin_half">12dp</dimen>
+</resources>

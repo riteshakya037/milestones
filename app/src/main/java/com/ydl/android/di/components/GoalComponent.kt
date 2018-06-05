@@ -2,9 +2,9 @@ package com.ydl.android.di.components
 
 import com.ydl.android.di.PerFragment
 import com.ydl.android.di.modules.GoalModule
-import com.ydl.android.views.screens.create.confirmation.GoalConfirmationFragment
-import com.ydl.android.views.screens.create.goal.CreateGoalFragment
-import com.ydl.android.views.screens.create.milestones.CreateMilestoneFragment
+import com.ydl.android.views.screens.goals.create.confirmation.GoalConfirmationFragment
+import com.ydl.android.views.screens.goals.create.goal.CreateGoalFragment
+import com.ydl.android.views.screens.goals.create.milestones.CreateMilestoneFragment
 import dagger.Component
 
 

@@ -1,4 +1,4 @@
-package com.ydl.android.views.screens.create
+package com.ydl.android.views.screens.goals.create
 
 /**
  * author riteshakya037

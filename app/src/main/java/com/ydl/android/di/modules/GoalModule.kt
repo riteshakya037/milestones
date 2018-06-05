@@ -1,9 +1,9 @@
 package com.ydl.android.di.modules
 
 import com.ydl.android.di.PerFragment
-import com.ydl.android.views.screens.create.GoalFlowPresenter
-import com.ydl.android.views.screens.create.milestones.CreateMilestoneContract
-import com.ydl.android.views.screens.create.milestones.CreateMilestonePresenterImpl
+import com.ydl.android.views.screens.goals.create.GoalFlowPresenter
+import com.ydl.android.views.screens.goals.create.milestones.CreateMilestoneContract
+import com.ydl.android.views.screens.goals.create.milestones.CreateMilestonePresenterImpl
 import dagger.Module
 import dagger.Provides
 

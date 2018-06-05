@@ -3,10 +3,12 @@ package com.ydl.android.utils.navigation
 import android.content.Context
 import android.content.Intent
 import android.support.v4.app.Fragment
-import com.ydl.android.views.screens.create.GoalActivity
-import com.ydl.android.views.screens.create.confirmation.GoalConfirmationFragment
-import com.ydl.android.views.screens.create.goal.CreateGoalFragment
-import com.ydl.android.views.screens.create.milestones.CreateMilestoneFragment
+import com.ydl.android.views.screens.goals.create.GoalActivity
+import com.ydl.android.views.screens.goals.create.confirmation.GoalConfirmationFragment
+import com.ydl.android.views.screens.goals.create.goal.CreateGoalFragment
+import com.ydl.android.views.screens.goals.create.milestones.CreateMilestoneFragment
+import com.ydl.android.views.screens.goals.listing.completed.CompletedGoalFragment
+import com.ydl.android.views.screens.goals.listing.inprogress.InProgressGoalFragment
 import com.ydl.android.views.screens.landing.LandingActivity
 import com.ydl.android.views.screens.landing.forgotpass.ForgotPasswordFragment
 import com.ydl.android.views.screens.landing.login.LoginFragment
@@ -71,6 +73,16 @@ class Navigator @Inject constructor() {
     fun getGoalConfirmationFragment(context: Context): Fragment {
         Timber.tag(_tag).i("Attached: Goal Confirmation Fragment to ${context::class.java.simpleName}")
         return GoalConfirmationFragment.newInstance()
+    }
+
+    fun getInProgressGoalsFragment(context: Context): Fragment {
+        Timber.tag(_tag).i("Attached: Goal in progress Fragment to ${context::class.java.simpleName}")
+        return InProgressGoalFragment.newInstance()
+    }
+
+    fun getCompletedGoalsFragment(context: Context): Fragment {
+        Timber.tag(_tag).i("Attached: Goal completed Fragment to ${context::class.java.simpleName}")
+        return CompletedGoalFragment.newInstance()
     }
 
 }

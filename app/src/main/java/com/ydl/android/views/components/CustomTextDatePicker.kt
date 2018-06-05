@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.Context
 import android.graphics.Rect
+import android.os.Build
 import android.support.constraint.ConstraintLayout
 import android.text.TextUtils
 import android.util.AttributeSet
@@ -61,14 +62,20 @@ class CustomTextDatePicker : ConstraintLayout {
         typedArray.recycle()
     }
 
+    @Suppress("DEPRECATION")
     private fun init(context: Context, hintText: String? = "", isEnabled: Boolean = true) {
         View.inflate(context, R.layout.custom_edit_text_date_picker, this)
         customEdtText.hint = hintText
         setEnabled(isEnabled)
         customEdtText.setOnClickListener {
             val calendar = GregorianCalendar()
+            val themeRes = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                android.R.style.Theme_Material_Light_Dialog_Alert
+            } else {
+                AlertDialog.THEME_HOLO_LIGHT
+            }
             val datePickerDialog = DatePickerDialog(context,
-                    AlertDialog.THEME_HOLO_LIGHT, { _, year, month, dayOfMonth ->
+                    themeRes, { _, year, month, dayOfMonth ->
                 mDate = DateTime(year, month + 1, dayOfMonth, 0, 0)
                 setDate()
                 observable.onNext(ValidationResult.success(text))

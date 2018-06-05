@@ -1,4 +1,4 @@
-package com.ydl.android.views.screens.create.confirmation
+package com.ydl.android.views.screens.goals.create.confirmation
 
 import android.support.v4.app.Fragment
 import com.ydl.android.R
@@ -6,7 +6,7 @@ import com.ydl.android.base.BaseFragment
 import com.ydl.android.di.components.DaggerGoalComponent
 import com.ydl.android.di.components.GoalComponent
 import com.ydl.android.di.modules.GoalModule
-import com.ydl.android.views.screens.create.GoalActivity
+import com.ydl.android.views.screens.goals.create.GoalActivity
 import kotlinx.android.synthetic.main.fragment_goal_confirmation.*
 
 class GoalConfirmationFragment : BaseFragment<GoalComponent>() {

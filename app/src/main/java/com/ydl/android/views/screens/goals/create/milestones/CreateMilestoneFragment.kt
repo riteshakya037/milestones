@@ -1,4 +1,4 @@
-package com.ydl.android.views.screens.create.milestones
+package com.ydl.android.views.screens.goals.create.milestones
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -10,7 +10,7 @@ import com.ydl.android.di.components.GoalComponent
 import com.ydl.android.di.modules.GoalModule
 import com.ydl.android.utils.addValidity
 import com.ydl.android.utils.validation.types.NonEmptyValidation
-import com.ydl.android.views.screens.create.GoalActivity
+import com.ydl.android.views.screens.goals.create.GoalActivity
 import kotlinx.android.synthetic.main.fragment_create_milestones.*
 import javax.inject.Inject
 

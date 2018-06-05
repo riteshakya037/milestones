@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".views.screens.main.MainActivity" />
-        <activity android:name=".views.screens.create.GoalActivity" />
+        <activity android:name=".views.screens.goals.create.GoalActivity" />
     </application>
 
 </manifest>

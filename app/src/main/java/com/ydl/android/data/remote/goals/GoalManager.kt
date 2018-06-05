@@ -6,4 +6,5 @@ import io.reactivex.Observable
 interface GoalManager {
     fun createGoal(goal: Goal): Completable
     fun getGoalsIds(): Observable<List<String>>
+    fun getGoals(iN_PROGRESS: Status): Observable<Goal>
 }

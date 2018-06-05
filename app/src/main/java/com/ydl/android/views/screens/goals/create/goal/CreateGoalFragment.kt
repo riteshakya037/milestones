@@ -1,4 +1,4 @@
-package com.ydl.android.views.screens.create.goal
+package com.ydl.android.views.screens.goals.create.goal
 
 import android.support.v4.app.Fragment
 import com.ydl.android.R
@@ -8,8 +8,8 @@ import com.ydl.android.di.components.GoalComponent
 import com.ydl.android.di.modules.GoalModule
 import com.ydl.android.utils.addValidity
 import com.ydl.android.utils.validation.types.NonEmptyValidation
-import com.ydl.android.views.screens.create.GoalActivity
-import com.ydl.android.views.screens.create.GoalFlowPresenter
+import com.ydl.android.views.screens.goals.create.GoalActivity
+import com.ydl.android.views.screens.goals.create.GoalFlowPresenter
 import kotlinx.android.synthetic.main.fragment_create_goal.*
 import javax.inject.Inject
 

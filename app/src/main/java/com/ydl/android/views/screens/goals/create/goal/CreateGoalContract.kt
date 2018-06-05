@@ -1,4 +1,4 @@
-package com.ydl.android.views.screens.create.goal
+package com.ydl.android.views.screens.goals.create.goal
 
 import com.ydl.android.base.BasePresenter
 import com.ydl.android.base.BaseView

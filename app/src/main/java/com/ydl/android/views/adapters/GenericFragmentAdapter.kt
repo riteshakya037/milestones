@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import javax.inject.Inject
 
-class LandingFragmentAdapter @Inject constructor(var context: Context, fm: FragmentManager) : FragmentPagerAdapter(fm) {
+class GenericFragmentAdapter @Inject constructor(var context: Context, fm: FragmentManager) : FragmentPagerAdapter(fm) {
     private val pages: ArrayList<Fragment> = ArrayList()
     private val titles: ArrayList<String> = ArrayList()
 

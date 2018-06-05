@@ -1,4 +1,4 @@
-package com.ydl.android.views.screens.create
+package com.ydl.android.views.screens.goals.create
 
 import android.os.Bundle
 import com.ydl.android.base.BaseActivity

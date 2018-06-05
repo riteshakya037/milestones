@@ -81,10 +81,6 @@ class CustomEditText : LinearLayout {
         super.onFocusChanged(gainFocus, direction, previouslyFocusedRect)
     }
 
-    fun setValid(result: ValidationResult<*>) {
-
-    }
-
     override fun setEnabled(enabled: Boolean) {
         this.customEdtText.isEnabled = enabled
     }

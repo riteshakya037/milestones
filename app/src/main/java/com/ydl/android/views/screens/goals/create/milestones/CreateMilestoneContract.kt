@@ -1,4 +1,4 @@
-package com.ydl.android.views.screens.create.milestones
+package com.ydl.android.views.screens.goals.create.milestones
 
 import com.ydl.android.base.BasePresenter
 import com.ydl.android.base.BaseView

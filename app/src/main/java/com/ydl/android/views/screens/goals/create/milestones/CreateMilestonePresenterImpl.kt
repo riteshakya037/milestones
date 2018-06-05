@@ -1,10 +1,10 @@
-package com.ydl.android.views.screens.create.milestones
+package com.ydl.android.views.screens.goals.create.milestones
 
 import com.ydl.android.base.BaseRxPresenter
 import com.ydl.android.data.remote.goals.Goal
 import com.ydl.android.data.remote.goals.GoalManager
 import com.ydl.android.data.remote.goals.Milestone
-import com.ydl.android.views.screens.create.GoalFlowPresenter
+import com.ydl.android.views.screens.goals.create.GoalFlowPresenter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import javax.inject.Inject
 

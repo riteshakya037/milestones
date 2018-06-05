@@ -56,6 +56,7 @@
             android:background="@drawable/background_toolbar"
             app:tabIndicatorColor="@android:color/white"
             app:tabIndicatorHeight="6dp"
+            app:tabBackground="?selectableItemBackgroundBorderless"
             app:tabMode="scrollable"
             app:tabSelectedTextColor="@android:color/white"
             app:tabTextAppearance="@style/TextAppearance.TabWidget"

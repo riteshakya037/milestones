@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".views.screens.main.MainActivity" />
+        <activity android:name=".views.screens.create.GoalActivity" />
     </application>
 
 </manifest>

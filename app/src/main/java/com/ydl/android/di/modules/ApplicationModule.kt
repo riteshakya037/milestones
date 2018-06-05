@@ -2,6 +2,8 @@ package com.ydl.android.di.modules
 
 import android.app.Application
 import android.content.Context
+import com.ydl.android.data.remote.goals.GoalManager
+import com.ydl.android.data.remote.goals.GoalManagerImpl
 import com.ydl.android.data.remote.session.SessionManager
 import com.ydl.android.data.remote.session.SessionManagerImpl
 import dagger.Module
@@ -28,5 +30,11 @@ class ApplicationModule(private val application: Application) {
     @Singleton
     internal fun provideSessionManager(sessionManager: SessionManagerImpl): SessionManager {
         return sessionManager
+    }
+
+    @Provides
+    @Singleton
+    internal fun provideGoalManager(goalManager: GoalManagerImpl): GoalManager {
+        return goalManager
     }
 }

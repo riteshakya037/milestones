@@ -41,11 +41,12 @@ class CustomEditText : LinearLayout {
                 hintText = typedArray.getString(R.styleable.CustomEditText_android_hint),
                 labelText = typedArray.getString(R.styleable.CustomEditText_android_label),
                 inputType = typedArray.getInt(R.styleable.CustomEditText_android_inputType, 0),
-                isEnabled = typedArray.getBoolean(R.styleable.CustomEditText_android_enabled, true))
+                isEnabled = typedArray.getBoolean(R.styleable.CustomEditText_android_enabled, true),
+                marginBottom = typedArray.getBoolean(R.styleable.CustomEditText_hasBottomPadding, true))
         typedArray.recycle()
     }
 
-    private fun init(context: Context, nextFocusId: Int = 0, hintText: String = "", labelText: String = "", inputType: Int = 0, isEnabled: Boolean = true) {
+    private fun init(context: Context, nextFocusId: Int = 0, hintText: String = "", labelText: String = "", inputType: Int = 0, isEnabled: Boolean = true, marginBottom: Boolean = true) {
         View.inflate(context, R.layout.custom_edit_text, this)
         customLblText.text = "$labelText:"
         customEdtText.hint = hintText
@@ -65,6 +66,11 @@ class CustomEditText : LinearLayout {
             customEdtText.transformationMethod = PasswordTransformationMethod()
         }
 
+        if (!marginBottom) {
+            val lp = customEdtText.layoutParams as LinearLayout.LayoutParams
+            lp.bottomMargin = 0
+            customEdtText.layoutParams = lp
+        }
     }
 
     override fun onFocusChanged(gainFocus: Boolean, direction: Int, previouslyFocusedRect: Rect?) {

@@ -1,16 +1,15 @@
 package com.ydl.android.utils
 
-import java.text.SimpleDateFormat
-import java.util.*
+import org.joda.time.DateTime
+import org.joda.time.format.DateTimeFormat
 
 class DateUtils {
     companion object {
         @JvmStatic
-        fun getIncomingDateFormat(date: String): Date = SimpleDateFormat("yyyy-mm-dd HH:mm:ss", Locale.getDefault()).parse(date)
+        fun getIncomingDateFormat(date: String): DateTime = DateTimeFormat.forPattern("dd MMM, yyyy").parseDateTime(date)
+
 
         @JvmStatic
-        fun getDisplayDate(date: Date): String = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault()).format(date)
-
+        fun getOutGoingDateFormat(mDate: DateTime): String = DateTimeFormat.forPattern("dd MMM, yyyy").print(mDate)
     }
-
 }

@@ -53,6 +53,9 @@ dependencies {
     implementation libraries.rxAndroid
     implementation libraries.rxJava
 
+    implementation libraries.jodaTime
+
+
     implementation libraries.firebaseCore
     implementation libraries.firebaseAuth
     implementation libraries.firebaseDatabase

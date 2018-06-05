@@ -18,6 +18,7 @@ ext.versions = [
         rxfirebase  : '1.5.0',
         firebase    : '16.0.1',
         firebaseCore: '16.0.0',
+        joda        : '2.9.9',
 
         // Test Libraries
         jUnit       : '4.12',
@@ -42,7 +43,8 @@ ext.libraries = [
         rxJava             : "io.reactivex.rxjava2:rxjava:$versions.rxJava",
         firebaseCore       : "com.google.firebase:firebase-core:$versions.firebaseCore",
         firebaseAuth       : "com.google.firebase:firebase-auth:$versions.firebase",
-        firebaseDatabase   : "com.google.firebase:firebase-database:$versions.firebase"
+        firebaseDatabase   : "com.google.firebase:firebase-database:$versions.firebase",
+        jodaTime           : "joda-time:joda-time:${versions.joda}",
 ]
 
 ext.testLibraries = [

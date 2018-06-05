@@ -10,6 +10,6 @@ data class Milestone(val title: String, val dueDate: String, val completed: Bool
         get() = DateUtils.getIncomingDateFormat(dueDate)
 }
 
-enum class Status {
-    IN_PROGRESS, COMPLETED
+enum class Mode {
+    IN_PROGRESS, COMPLETED, ALL
 }

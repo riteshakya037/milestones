@@ -2,7 +2,7 @@ package com.ydl.android.views.screens.goals.listing.inprogress
 
 import com.ydl.android.base.BaseRxPresenter
 import com.ydl.android.data.remote.goals.GoalManager
-import com.ydl.android.data.remote.goals.Status
+import com.ydl.android.data.remote.goals.Mode
 import io.reactivex.android.schedulers.AndroidSchedulers
 import javax.inject.Inject
 
@@ -17,7 +17,7 @@ class InProgressGoalPresenterImpl
     }
 
     override fun subscribe() {
-        manage(goalManager.getGoals(Status.IN_PROGRESS)
+        manage(goalManager.getGoals(Mode.IN_PROGRESS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         {

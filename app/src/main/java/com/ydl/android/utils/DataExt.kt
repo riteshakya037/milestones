@@ -1,5 +1,6 @@
 package com.ydl.android.utils
 
+import com.ydl.android.data.remote.goals.Goal
 import com.ydl.android.data.remote.goals.Milestone
 import org.joda.time.DateTime
 
@@ -17,4 +18,8 @@ fun List<Milestone>.checkMissed(): Boolean {
 
 fun List<Milestone>.getNextMilestone(): Milestone {
     return this.first { !it.completed }
+}
+
+fun List<Goal>.getCompletedCount(): Int {
+    return this.count { it.milestones.getCompletedMilestonesCount() == 3 }
 }

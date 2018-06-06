@@ -23,7 +23,7 @@ fun Milestone.isMissed(): Boolean {
 }
 
 fun List<Milestone>.getNextMilestone(): Milestone {
-    return firstOrNull { it.dueDateInDateTime.isAfterNow } ?: this.last()
+    return firstOrNull { !it.completed && it.dueDateInDateTime.isAfterNow } ?: this.last()
 }
 
 fun List<Goal>.getCompletedCount(): Int {

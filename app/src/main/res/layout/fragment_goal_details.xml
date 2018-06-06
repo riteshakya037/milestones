@@ -28,13 +28,13 @@
 
                 <ImageView
                     android:id="@+id/navigateBackBtn"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginEnd="@dimen/vertical_margin"
-                    android:layout_marginStart="@dimen/vertical_margin"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="@dimen/vertical_margin_small"
                     android:background="?selectableItemBackgroundBorderless"
                     android:src="@drawable/icon_back"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -56,43 +56,40 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <android.support.constraint.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="32dp">
+            android:orientation="vertical">
 
-
-            <TextView
-                android:id="@+id/goalTitle"
-                style="@style/TextAppearance.Widget.Goal.Title"
-                android:gravity="center"
-                android:paddingEnd="@dimen/vertical_margin"
-                android:paddingStart="@dimen/vertical_margin"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Learn to play piano" />
-
-
-            <TextView
-                android:id="@+id/goalPurpose"
-                style="@style/TextAppearance.Widget.Goal.Purpose"
-                android:layout_marginTop="@dimen/vertical_margin_tiny"
-                android:gravity="center"
-                android:paddingBottom="@dimen/vertical_margin_large"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/goalTitle"
-                tools:text="Get a used piano from Craigslist in 5 days" />
-
-
-            <View
+            <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#707070"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/goalPurpose" />
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_list_item"
+                android:paddingTop="32dp">
+
+                <TextView
+                    android:id="@+id/goalTitle"
+                    style="@style/TextAppearance.Widget.Goal.Title"
+                    android:gravity="center"
+                    android:paddingEnd="@dimen/vertical_margin"
+                    android:paddingStart="@dimen/vertical_margin"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Learn to play piano" />
+
+
+                <TextView
+                    android:id="@+id/goalPurpose"
+                    style="@style/TextAppearance.Widget.Goal.Purpose"
+                    android:layout_marginTop="@dimen/vertical_margin_tiny"
+                    android:gravity="center"
+                    android:paddingBottom="@dimen/vertical_margin_large"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/goalTitle"
+                    tools:text="Get a used piano from Craigslist in 5 days" />
+            </android.support.constraint.ConstraintLayout>
 
 
             <android.support.v7.widget.RecyclerView
@@ -101,7 +98,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/goalPurpose"
                 tools:listitem="@layout/item_milestones_detail" />
-        </android.support.constraint.ConstraintLayout>
+        </LinearLayout>
     </ScrollView>
 
 </android.support.design.widget.CoordinatorLayout>

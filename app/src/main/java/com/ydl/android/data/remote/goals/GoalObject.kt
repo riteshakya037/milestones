@@ -4,7 +4,7 @@ import com.ydl.android.utils.DateUtils
 import org.joda.time.DateTime
 
 data class Goal(val title: String = "", val purpose: String = "", val crushedDate: String = "", val milestones: List<Milestone> = ArrayList()) {
-    internal lateinit var id: String
+    internal var id: String = ""
 
     override fun equals(other: Any?): Boolean {
         if (other !is Goal) return false

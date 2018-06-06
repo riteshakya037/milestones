@@ -23,7 +23,7 @@ class CreateMilestonePresenterImpl
 
     override fun createGoal(goal: String, purpose: String, milestones: List<Milestone>) {
         view.showProgressDialog()
-        manage(goalManager.createGoal(Goal(goal, purpose, milestones = milestones))
+        manage(goalManager.createOrUpdate(Goal(goal, purpose, milestones = milestones))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     this.goalFlowPresenter.navigateToGoalConfirmation()

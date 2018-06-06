@@ -5,6 +5,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.ydl.android.data.helper.DatabaseNames
 import com.ydl.android.data.remote.goals.GoalManager.Companion.FALLBACK
 import com.ydl.android.data.remote.session.SessionManager
+import com.ydl.android.utils.toMap
 import durdinapps.rxfirebase2.RxFirebaseDatabase
 import io.reactivex.Completable
 import io.reactivex.Flowable
@@ -14,6 +15,7 @@ import timber.log.Timber
 import java.io.File
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
+
 
 class GoalManagerImpl
 @Inject constructor(
@@ -59,8 +61,24 @@ class GoalManagerImpl
         }
     }
 
-    override fun createGoal(goal: Goal): Completable {
-        return Completable.create { it.onComplete() }
+    override fun createOrUpdate(goal: Goal): Completable {
+        val query: DatabaseReference = databaseInstance.reference.child(goalTable)
+        val key = if (goal.id.isEmpty()) {
+            query.push().key!!
+        } else {
+            goal.id
+        }
+        val postValues = goal.toMap()
+        val childUpdates = HashMap<String, Any>()
+        childUpdates[key] = postValues
+        return RxFirebaseDatabase.updateChildren(query, childUpdates).andThen(updateUserGoalsList(key))
+    }
+
+    private fun updateUserGoalsList(key: String): Completable {
+        val query: DatabaseReference = databaseInstance.reference.child(userGoalIdTable)
+        val childUpdates = HashMap<String, Any>()
+        childUpdates[key] = key
+        return RxFirebaseDatabase.updateChildren(query, childUpdates)
     }
 }
 

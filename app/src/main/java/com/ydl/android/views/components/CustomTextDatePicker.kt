@@ -11,9 +11,6 @@ import android.view.View
 import android.widget.EditText
 import com.ydl.android.R
 import com.ydl.android.utils.DateUtils
-import com.ydl.android.utils.validation.ValidationResult
-import io.reactivex.Observable
-import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.custom_edit_text_date_picker.view.*
 import org.joda.time.DateTime
 import java.util.*
@@ -73,7 +70,7 @@ class CustomTextDatePicker : ConstraintLayout {
             }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
                     calendar.get(Calendar.DAY_OF_MONTH))
 
-            datePickerDialog.datePicker.maxDate = Date().time
+            datePickerDialog.datePicker.maxDate = DateTime().plusYears(2).millis
             datePickerDialog.show()
         }
     }

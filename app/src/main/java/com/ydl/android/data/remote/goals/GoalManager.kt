@@ -9,7 +9,7 @@ interface GoalManager {
         const val FALLBACK: String = "FALLBACK"
     }
 
-    fun createGoal(goal: Goal): Completable
+    fun createOrUpdate(goal: Goal): Completable
     fun getGoalsIds(): Single<String>
     fun getGoals(): Flowable<Goal>
     fun getGoalForId(goalId: String): Flowable<Goal>

@@ -23,7 +23,7 @@ import javax.inject.Inject
 
 class GoalManagerImpl
 @Inject constructor(
-        sessionManager: SessionManager
+        private val sessionManager: SessionManager
 ) : GoalManager {
     override fun updateMilestoneStatus(goalId: String, position: Int, it: Boolean): Completable {
         val query: DatabaseReference = databaseInstance.reference.child(DatabaseNames.createPath(goalTable, goalId, "milestones", position.toString()))
@@ -51,8 +51,7 @@ class GoalManagerImpl
         }
     }
 
-    private val userGoalIdTable: String = DatabaseNames.createPath(DatabaseNames.TABLE_USER_DATA,
-            sessionManager.getUserID(), DatabaseNames.TABLE_GOALS)
+
     private val goalTable: String = DatabaseNames.createPath(DatabaseNames.TABLE_GOALS)
     private val databaseInstance = FirebaseDatabase.getInstance()
 
@@ -65,12 +64,14 @@ class GoalManagerImpl
 
     override fun getGoalsIds(): Single<String> {
         return Observable.concat(
-                getListOfGoals().toObservable().take(5000, TimeUnit.MILLISECONDS),
+                getListOfGoals().toObservable().take(500, TimeUnit.MILLISECONDS),
                 Observable.just(FALLBACK)
         ).firstOrError()
     }
 
     private fun getListOfGoals(): Flowable<String> {
+        val userGoalIdTable: String = DatabaseNames.createPath(DatabaseNames.TABLE_USER_DATA,
+                sessionManager.getUserID(), DatabaseNames.TABLE_GOALS)
         val query: DatabaseReference = databaseInstance.reference.child(userGoalIdTable)
         return RxFirebaseDatabase.observeChildEvent(query, String::class.java).map {
             val data = it
@@ -93,6 +94,8 @@ class GoalManagerImpl
     }
 
     private fun updateUserGoalsList(key: String): Completable {
+        val userGoalIdTable: String = DatabaseNames.createPath(DatabaseNames.TABLE_USER_DATA,
+                sessionManager.getUserID(), DatabaseNames.TABLE_GOALS)
         val query: DatabaseReference = databaseInstance.reference.child(userGoalIdTable)
         val childUpdates = HashMap<String, Any>()
         childUpdates[key] = key

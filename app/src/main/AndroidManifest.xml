@@ -14,7 +14,7 @@
 
         <activity
             android:name=".views.screens.landing.LandingActivity"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".views.screens.splash.SplashActivity"
             android:theme="@style/MilestoneTheme.Fullscreen">
@@ -27,13 +27,14 @@
         <activity android:name=".views.screens.main.MainActivity" />
         <activity
             android:name=".views.screens.goals.create.GoalActivity"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".views.screens.goals.details.GoalDetailActivity" />
         <activity
             android:name=".views.screens.goals.edit.GoalEditActivity"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
-        <activity android:name=".views.screens.setting.SettingActivity"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".views.screens.setting.SettingActivity"
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>

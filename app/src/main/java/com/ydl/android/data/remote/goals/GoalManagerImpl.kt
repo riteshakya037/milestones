@@ -5,12 +5,16 @@ import com.google.firebase.database.FirebaseDatabase
 import com.ydl.android.data.helper.DatabaseNames
 import com.ydl.android.data.remote.goals.GoalManager.Companion.FALLBACK
 import com.ydl.android.data.remote.session.SessionManager
+import com.ydl.android.utils.DateUtils
+import com.ydl.android.utils.shouldHaveCrushedDate
+import com.ydl.android.utils.shouldNotHaveCrushedDate
 import com.ydl.android.utils.toMap
 import durdinapps.rxfirebase2.RxFirebaseDatabase
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Observable
 import io.reactivex.Single
+import org.joda.time.DateTime
 import timber.log.Timber
 import java.io.File
 import java.util.concurrent.TimeUnit
@@ -34,6 +38,13 @@ class GoalManagerImpl
         val query: DatabaseReference = databaseInstance.reference.child(goalTable + File.separator + goalId)
         return RxFirebaseDatabase.observeValueEvent(query, Goal::class.java).map {
             it.id = goalId
+            if (it.shouldHaveCrushedDate()) {
+                it.crushedDate = DateUtils.getOutGoingDateFormat(DateTime())
+                createOrUpdate(it).subscribe()
+            } else if (it.shouldNotHaveCrushedDate()) {
+                it.crushedDate = ""
+                createOrUpdate(it).subscribe()
+            }
             it
         }.doOnError { throwable ->
             Timber.tag(_tag).e(throwable)

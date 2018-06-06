@@ -3,7 +3,7 @@ package com.ydl.android.data.remote.goals
 import com.ydl.android.utils.DateUtils
 import org.joda.time.DateTime
 
-data class Goal(val title: String = "", val purpose: String = "", val crushedDate: String = "", val milestones: List<Milestone> = ArrayList()) {
+data class Goal(val title: String = "", val purpose: String = "", var crushedDate: String = "", val milestones: List<Milestone> = ArrayList()) {
     internal var id: String = ""
 
     override fun equals(other: Any?): Boolean {

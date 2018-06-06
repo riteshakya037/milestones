@@ -50,6 +50,14 @@ fun Goal.toMap(): HashMap<String, Any> {
     return result
 }
 
+fun Goal.shouldHaveCrushedDate(): Boolean {
+    return this.crushedDate.isEmpty() && this.milestones.getCompletedMilestonesCount() == 3
+}
+
+fun Goal.shouldNotHaveCrushedDate(): Boolean {
+    return this.crushedDate.isNotEmpty() && this.milestones.getCompletedMilestonesCount() != 3
+}
+
 fun Milestone.toMap(): HashMap<String, Any> {
     val result = HashMap<String, Any>()
     result["title"] = title

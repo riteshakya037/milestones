@@ -28,13 +28,13 @@
 
                 <ImageView
                     android:id="@+id/navigateBackBtn"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_margin="@dimen/vertical_margin_small"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="@dimen/vertical_margin"
+                    android:layout_marginStart="@dimen/vertical_margin"
                     android:background="?selectableItemBackgroundBorderless"
                     android:src="@drawable/icon_back"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 

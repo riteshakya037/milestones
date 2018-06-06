@@ -10,6 +10,7 @@ import io.reactivex.Observable
 import timber.log.Timber
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
+import java.util.concurrent.TimeUnit
 import java.util.concurrent.TimeoutException
 import javax.inject.Inject
 
@@ -49,7 +50,9 @@ class SessionManagerImpl
                 .map { Unit }
     }
 
-    override val hasSession: Boolean
-        get() = firebaseAuth.currentUser != null
+    override fun hasSession(): Observable<Boolean> {
+        return Observable.just(firebaseAuth.currentUser != null)
+                .delay(300, TimeUnit.MILLISECONDS)
+    }
 
 }

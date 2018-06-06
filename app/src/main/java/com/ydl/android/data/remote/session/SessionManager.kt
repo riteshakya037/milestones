@@ -15,5 +15,5 @@ interface SessionManager {
 
     fun register(email: String, password: String): Maybe<Unit>
 
-    val hasSession: Boolean
+    fun hasSession(): Observable<Boolean>
 }

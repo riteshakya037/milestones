@@ -15,7 +15,9 @@
         <activity
             android:name=".views.screens.landing.LandingActivity"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
-        <activity android:name=".views.screens.splash.SplashActivity">
+        <activity
+            android:name=".views.screens.splash.SplashActivity"
+            android:theme="@style/MilestoneTheme.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

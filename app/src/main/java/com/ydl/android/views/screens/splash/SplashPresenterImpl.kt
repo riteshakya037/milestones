@@ -20,7 +20,7 @@ class SplashPresenterImpl
     }
 
     private fun getSession() {
-        if (sessionManager.hasSession) {
+        if (sessionManager.hasSession().blockingFirst()) {
             splashView.navigateToMainScreen()
         } else {
             splashView.navigateToLandingScreen()

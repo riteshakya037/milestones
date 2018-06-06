@@ -8,6 +8,12 @@
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 
+    <style name="MilestoneTheme.Fullscreen" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@android:color/transparent</item>
+        <item name="android:windowBackground">@drawable/background_splash</item>
+    </style>
+
     <style name="TextAppearance">
         <item name="android:fontFamily">@font/open_sans_regular</item>
     </style>

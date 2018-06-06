@@ -19,6 +19,8 @@ import com.ydl.android.views.screens.landing.login.LoginFragment
 import com.ydl.android.views.screens.landing.register.RegisterFragment
 import com.ydl.android.views.screens.main.MainActivity
 import com.ydl.android.views.screens.main.MainFragment
+import com.ydl.android.views.screens.setting.SettingActivity
+import com.ydl.android.views.screens.setting.SettingFragment
 import com.ydl.android.views.screens.splash.SplashActivity
 import com.ydl.android.views.screens.splash.SplashFragment
 import timber.log.Timber
@@ -63,6 +65,11 @@ class Navigator @Inject constructor() {
         context.startActivity(GoalEditActivity.newInstance(context, goalId))
     }
 
+
+    fun navigateToSettingScreen(context: Context) {
+        Timber.tag(_tag).i("Navigate to Settings")
+        context.startActivity(Intent(context, SettingActivity::class.java))
+    }
 
     fun getSplashFragment(context: Context): Fragment {
         Timber.tag(_tag).i("Attached: Splash Fragment to ${context::class.java.simpleName}")
@@ -122,6 +129,11 @@ class Navigator @Inject constructor() {
     fun getGoalEditFragment(context: Context, goalId: String): Fragment {
         Timber.tag(_tag).i("Attached: Goal edit Fragment to ${context::class.java.simpleName}")
         return GoalEditFragment.newInstance(goalId)
+    }
+
+    fun getSettingFragment(context: Context): Fragment {
+        Timber.tag(_tag).i("Attached: Settings Fragment to ${context::class.java.simpleName}")
+        return SettingFragment.newInstance()
     }
 
 }

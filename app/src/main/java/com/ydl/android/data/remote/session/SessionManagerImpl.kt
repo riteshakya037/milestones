@@ -17,6 +17,10 @@ import javax.inject.Inject
 
 class SessionManagerImpl
 @Inject constructor() : SessionManager {
+    override fun getUserDetails(): Observable<String> {
+        return Observable.just(getFirebaseUser()!!.email)
+    }
+
     private val firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
 
     override fun login(email: String, password: String): Maybe<Unit> {
@@ -42,8 +46,8 @@ class SessionManagerImpl
                 })
     }
 
-    override fun changePassword(username: String, newPassword: String): Observable<String> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun changePassword(username: String, newPassword: String): Completable {
+        return RxFirebaseUser.updateEmail(getFirebaseUser()!!, username).andThen(RxFirebaseUser.updatePassword(getFirebaseUser()!!, newPassword))
     }
 
     override fun register(email: String, password: String): Maybe<Unit> {
@@ -52,13 +56,16 @@ class SessionManagerImpl
     }
 
     override fun hasSession(): Observable<Boolean> {
-        return Observable.just(firebaseAuth.currentUser != null)
+        return Observable.just(getFirebaseUser() != null)
                 .delay(300, TimeUnit.MILLISECONDS)
     }
 
+    private fun getFirebaseUser() = firebaseAuth.currentUser
+
     override fun logout(): Completable {
-        return   RxFirebaseAuth.addIdTokenListener(firebaseAuth, {it.signOut()})
+        return Completable.create {
+            firebaseAuth.signOut()
+            it.onComplete()
+        }
     }
-
-
 }

@@ -11,11 +11,13 @@ interface SessionManager {
 
     fun forgotPassword(email: String): Completable
 
-    fun changePassword(username: String, newPassword: String): Observable<String>
+    fun changePassword(username: String, newPassword: String): Completable
 
     fun register(email: String, password: String): Maybe<Unit>
 
     fun hasSession(): Observable<Boolean>
 
     fun logout(): Completable
+
+    fun getUserDetails(): Observable<String>
 }

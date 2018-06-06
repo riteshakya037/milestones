@@ -32,6 +32,8 @@
         <activity
             android:name=".views.screens.goals.edit.GoalEditActivity"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+        <activity android:name=".views.screens.setting.SettingActivity"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
     </application>
 
 </manifest>

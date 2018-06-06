@@ -38,7 +38,7 @@ class MainFragment : BaseFragment<MainComponent>(), MainContract.View {
         mainScreenCreateGoal.setOnClickListener { createNewGoal() }
 
         mainScreenMenuBtn.setOnClickListener { mainScreenDrawer.openDrawer(GravityCompat.START) }
-        navSettings.setOnClickListener { println("Setting") }
+        navSettings.setOnClickListener { navigator.navigateToSettingScreen(context!!) }
         navHelp.setOnClickListener { println("Help") }
         navLogout.setOnClickListener { presenter.logOut() }
     }

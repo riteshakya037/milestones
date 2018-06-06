@@ -125,6 +125,7 @@ abstract class BaseFragment<T> : Fragment() {
     }
 
     fun showInAppError(title: String, message: String) {
+        hideProgressDialog()
         showInAppError(title, message, null)
     }
 

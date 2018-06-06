@@ -21,6 +21,13 @@ class GoalManagerImpl
 @Inject constructor(
         sessionManager: SessionManager
 ) : GoalManager {
+    override fun updateMilestoneStatus(goalId: String, position: Int, it: Boolean): Completable {
+        val query: DatabaseReference = databaseInstance.reference.child(DatabaseNames.createPath(goalTable, goalId, "milestones", position.toString()))
+        val childUpdates = HashMap<String, Any>()
+        childUpdates["completed"] = it
+        return RxFirebaseDatabase.updateChildren(query, childUpdates)
+    }
+
     private val _tag: String = "GoalManager"
 
     override fun getGoalForId(goalId: String): Flowable<Goal> {

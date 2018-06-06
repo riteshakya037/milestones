@@ -17,7 +17,7 @@ class SettingPresenterImpl
     }
 
 
-    override fun subscribe() {
+    override fun onCreate() {
         manage(sessionManager.getUserDetails()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

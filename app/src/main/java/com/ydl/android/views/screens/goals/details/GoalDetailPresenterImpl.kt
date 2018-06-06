@@ -9,6 +9,8 @@ class GoalDetailPresenterImpl
 @Inject constructor(
         private val goalManager: GoalManager
 ) : BaseRxPresenter(), GoalDetailsContract.Presenter {
+
+
     override fun getGoalForId(goalId: String) {
         manage(goalManager.getGoalForId(goalId)
                 .observeOn(AndroidSchedulers.mainThread())

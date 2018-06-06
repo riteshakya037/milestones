@@ -2,6 +2,7 @@ package com.ydl.android.data.remote.goals
 
 import io.reactivex.Completable
 import io.reactivex.Flowable
+import io.reactivex.Observable
 import io.reactivex.Single
 
 interface GoalManager {
@@ -13,4 +14,5 @@ interface GoalManager {
     fun getGoalsIds(): Single<String>
     fun getGoals(): Flowable<Goal>
     fun getGoalForId(goalId: String): Flowable<Goal>
+    fun updateMilestoneStatus(goalId: String, position: Int, it: Boolean): Completable
 }

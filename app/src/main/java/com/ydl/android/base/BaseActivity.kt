@@ -39,7 +39,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        presenter?.subscribe()
+        presenter?.onCreate()
     }
 
     override fun onResume() {
@@ -47,9 +47,9 @@ abstract class BaseActivity : AppCompatActivity() {
         presenter?.onResume()
     }
 
-    override fun onStop() {
-        super.onStop()
-        presenter?.unsubscribe()
+    override fun onPause() {
+        super.onPause()
+        presenter?.onPause()
     }
 
     override fun onDestroy() {

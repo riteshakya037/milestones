@@ -16,7 +16,7 @@ class InProgressGoalPresenterImpl
         this.view = view
     }
 
-    override fun subscribe() {
+    override fun onCreate() {
         manage(goalManager.getGoals()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(

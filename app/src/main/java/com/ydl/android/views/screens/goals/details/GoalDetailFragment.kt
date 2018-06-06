@@ -18,7 +18,7 @@ class GoalDetailFragment : BaseFragment<GoalDetailComponent>(), GoalDetailsContr
     override fun displayGoal(goal: Goal) {
         goalTitle.text = goal.title
         goalPurpose.text = goal.purpose
-        adapter.addMilestones(goal.milestones)
+        adapter.setGoal(goal)
     }
 
     @Inject

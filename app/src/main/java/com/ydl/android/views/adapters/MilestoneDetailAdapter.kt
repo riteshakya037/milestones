@@ -4,6 +4,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.ydl.android.R
+import com.ydl.android.data.remote.goals.Goal
+import com.ydl.android.data.remote.goals.GoalManager
 import com.ydl.android.data.remote.goals.Milestone
 import com.ydl.android.views.adapters.holders.MilestoneDetailViewHolder
 import javax.inject.Inject
@@ -12,8 +14,9 @@ import javax.inject.Inject
  * @author Ritesh Shakya
  */
 
-class MilestoneDetailAdapter @Inject constructor() : RecyclerView.Adapter<MilestoneDetailViewHolder>() {
+class MilestoneDetailAdapter @Inject constructor(private val goalManager: GoalManager) : RecyclerView.Adapter<MilestoneDetailViewHolder>() {
 
+    private lateinit var goal: Goal
     private val mList: ArrayList<Milestone> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MilestoneDetailViewHolder {
@@ -23,10 +26,13 @@ class MilestoneDetailAdapter @Inject constructor() : RecyclerView.Adapter<Milest
     }
 
     override fun onBindViewHolder(holder: MilestoneDetailViewHolder, position: Int) {
-        holder.bind(mList[position])
+        holder.bind(goal.milestones[position])
+        holder.checkListener.doOnNext {
+            goalManager.updateMilestoneStatus(goal.id, position, it).subscribe()
+        }.subscribe()
     }
 
-    fun addMilestones(milestones: List<Milestone>) {
+    private fun addMilestones(milestones: List<Milestone>) {
         mList.clear()
         mList.addAll(milestones)
         notifyDataSetChanged()
@@ -37,7 +43,9 @@ class MilestoneDetailAdapter @Inject constructor() : RecyclerView.Adapter<Milest
         return mList.size
     }
 
-    fun getItems(): ArrayList<Milestone> {
-        return mList
+
+    fun setGoal(goal: Goal) {
+        this.goal = goal
+        addMilestones(goal.milestones)
     }
 }

@@ -58,7 +58,7 @@ abstract class BaseFragment<T> : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        presenters.forEach({ it.subscribe() })
+        presenters.forEach({ it.onCreate() })
     }
 
     override fun onResume() {
@@ -66,15 +66,15 @@ abstract class BaseFragment<T> : Fragment() {
         presenters.forEach({ it.onResume() })
     }
 
-    override fun onStop() {
-        super.onStop()
-        presenters.forEach({ it.unsubscribe() })
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         presenters.forEach({ it.onDestroy() })
         disposables?.forEach { it.dispose() }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        presenters.forEach({ it.onPause() })
     }
 
     open fun showProgressDialog() {

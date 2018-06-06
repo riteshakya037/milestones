@@ -2,9 +2,9 @@ package com.ydl.android.base
 
 interface BasePresenter<in T : BaseView> {
 
-    fun subscribe()
+    fun onCreate()
 
-    fun unsubscribe()
+    fun onPause()
 
     fun onResume()
 

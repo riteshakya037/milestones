@@ -6,15 +6,15 @@ import io.reactivex.disposables.Disposable
 open class BaseRxPresenter {
     private val disposable = CompositeDisposable()
 
-    open fun subscribe() {
-    }
-
-    open fun unsubscribe() {
-        disposable.clear()
+    open fun onCreate() {
     }
 
     open fun onDestroy() {
         disposable.dispose()
+        disposable.clear()
+    }
+
+    open fun onPause() {
     }
 
     open fun onResume() {

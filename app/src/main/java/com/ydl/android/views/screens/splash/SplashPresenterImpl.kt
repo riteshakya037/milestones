@@ -15,7 +15,7 @@ class SplashPresenterImpl
         this.splashView = view
     }
 
-    override fun subscribe() {
+    override fun onCreate() {
         getSession()
     }
 

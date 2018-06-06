@@ -35,8 +35,9 @@ class MainPresenterImpl
         }))
     }
 
-    override fun subscribe() {
+    override fun onCreate() {
         checkHasGoals()
+        mList.clear()
         manage(goalManager.getGoals().doOnNext({
             if (!mList.contains(it))
                 mList.add(it)

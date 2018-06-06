@@ -19,6 +19,7 @@ import com.ydl.android.views.screens.landing.login.LoginFragment
 import com.ydl.android.views.screens.landing.register.RegisterFragment
 import com.ydl.android.views.screens.main.MainActivity
 import com.ydl.android.views.screens.main.MainFragment
+import com.ydl.android.views.screens.splash.SplashActivity
 import com.ydl.android.views.screens.splash.SplashFragment
 import timber.log.Timber
 import javax.inject.Inject
@@ -31,6 +32,11 @@ class Navigator @Inject constructor() {
     fun navigateToLandingScreen(context: Context) {
         Timber.tag(_tag).i("Navigate to Intro Screen")
         context.startActivity(Intent(context, LandingActivity::class.java))
+    }
+
+    fun navigateToSplashScreen(context: Context) {
+        Timber.tag(_tag).i("Navigate to Splash Screen")
+        context.startActivity(Intent(context, SplashActivity::class.java))
     }
 
     fun navigateToMainScreen(context: Context) {

@@ -4,11 +4,27 @@ import com.ydl.android.base.BaseRxPresenter
 import com.ydl.android.data.remote.goals.Goal
 import com.ydl.android.data.remote.goals.GoalManager
 import com.ydl.android.data.remote.goals.Mode
+import com.ydl.android.data.remote.session.SessionManager
 import com.ydl.android.utils.getCompletedCount
 import javax.inject.Inject
 
 class MainPresenterImpl
-@Inject constructor(private val goalManager: GoalManager) : BaseRxPresenter(), MainContract.Presenter {
+@Inject constructor(
+        private val goalManager: GoalManager,
+        private val sessionManager: SessionManager
+) : BaseRxPresenter(), MainContract.Presenter {
+
+    override fun logOut() {
+        view.showProgressDialog()
+        manage(sessionManager.logout()
+                .subscribe({
+                    view.hideProgressDialog()
+                    view.navigateToSplashScreen()
+                }, { throwable ->
+                    view.showInAppError(throwable.message!!)
+                }))
+    }
+
     private val mList = ArrayList<Goal>()
 
     private fun checkHasGoals() {

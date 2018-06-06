@@ -16,8 +16,11 @@ interface MainContract {
 
         fun setTotalGoals(size: Int)
 
+        fun navigateToSplashScreen()
+
     }
 
     interface Presenter : BasePresenter<View> {
+        fun logOut()
     }
 }

@@ -4,6 +4,7 @@ import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.ydl.android.data.exceptions.EmailNotFoundException
 import durdinapps.rxfirebase2.RxFirebaseAuth
+import durdinapps.rxfirebase2.RxFirebaseUser
 import io.reactivex.Completable
 import io.reactivex.Maybe
 import io.reactivex.Observable
@@ -54,5 +55,10 @@ class SessionManagerImpl
         return Observable.just(firebaseAuth.currentUser != null)
                 .delay(300, TimeUnit.MILLISECONDS)
     }
+
+    override fun logout(): Completable {
+        return   RxFirebaseAuth.addIdTokenListener(firebaseAuth, {it.signOut()})
+    }
+
 
 }

@@ -16,4 +16,6 @@ interface SessionManager {
     fun register(email: String, password: String): Maybe<Unit>
 
     fun hasSession(): Observable<Boolean>
+
+    fun logout(): Completable
 }

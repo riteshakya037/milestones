@@ -40,7 +40,7 @@ class MainFragment : BaseFragment<MainComponent>(), MainContract.View {
         mainScreenMenuBtn.setOnClickListener { mainScreenDrawer.openDrawer(GravityCompat.START) }
         navSettings.setOnClickListener { println("Setting") }
         navHelp.setOnClickListener { println("Help") }
-        navLogout.setOnClickListener { println("Logout") }
+        navLogout.setOnClickListener { presenter.logOut() }
     }
 
     override fun showInAppError(message: String) {
@@ -57,6 +57,12 @@ class MainFragment : BaseFragment<MainComponent>(), MainContract.View {
 
     override fun setTotalGoals(size: Int) {
         totalGoalTxt.text = "/$size"
+    }
+
+
+    override fun navigateToSplashScreen() {
+        navigator.navigateToSplashScreen(context!!)
+        activity!!.finishAffinity()
     }
 
     override fun initInjector(): MainComponent {

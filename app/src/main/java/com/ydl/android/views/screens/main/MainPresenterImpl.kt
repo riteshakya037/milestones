@@ -38,11 +38,12 @@ class MainPresenterImpl
     override fun subscribe() {
         checkHasGoals()
         manage(goalManager.getGoals().doOnNext({
-            if (!mList.contains(it)) {
+            if (!mList.contains(it))
                 mList.add(it)
-                view.setCurrentGoals(mList.getCompletedCount())
-                view.setTotalGoals(mList.size)
-            }
+            else
+                mList[mList.indexOf(it)] = it
+            view.setCurrentGoals(mList.getCompletedCount())
+            view.setTotalGoals(mList.size)
         }).subscribe())
     }
 

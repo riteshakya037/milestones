@@ -28,11 +28,12 @@ class MainPresenterImpl
     private val mList = ArrayList<Goal>()
 
     private fun checkHasGoals() {
-        manage(goalManager.getGoalsIds().doOnNext({
-            if (it.isEmpty()) {
+        manage(goalManager.getGoalsIds().subscribe({
+            if (it == GoalManager.FALLBACK) {
                 view.createNewGoal()
             }
-        }).subscribe())
+        }, {
+        }))
     }
 
     override fun subscribe() {

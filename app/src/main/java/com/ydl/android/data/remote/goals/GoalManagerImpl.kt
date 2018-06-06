@@ -1,37 +1,44 @@
 package com.ydl.android.data.remote.goals
 
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.ydl.android.data.helper.DatabaseNames
+import com.ydl.android.data.remote.goals.GoalManager.Companion.FALLBACK
+import com.ydl.android.data.remote.session.SessionManager
 import com.ydl.android.utils.getCompletedMilestonesCount
-import io.reactivex.Completable
-import io.reactivex.Observable
+import durdinapps.rxfirebase2.RxFirebaseDatabase
+import io.reactivex.*
+import timber.log.Timber
+import java.io.File
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class GoalManagerImpl
 @Inject constructor(
-
+        sessionManager: SessionManager
 ) : GoalManager {
-    override fun getGoalForId(goalId: String): Observable<Goal> {
-        return Observable.just(goal)
+    private val _tag: String = "GoalManager"
+
+    override fun getGoalForId(goalId: String): Maybe<Goal> {
+        val query: DatabaseReference = databaseInstance.reference.child(goalTable + File.separator + goalId)
+        return RxFirebaseDatabase.observeSingleValueEvent(query, Goal::class.java).map {
+            it.id = goalId
+            it
+        }.doOnError { throwable ->
+            Timber.tag(_tag).e(throwable)
+        }
     }
 
-    val goal: Goal
+    private val userGoalIdTable: String = DatabaseNames.createPath(DatabaseNames.TABLE_USER_DATA,
+            sessionManager.getUserID(), DatabaseNames.TABLE_GOALS)
+    private val goalTable: String = DatabaseNames.createPath(DatabaseNames.TABLE_GOALS)
+    private val databaseInstance = FirebaseDatabase.getInstance()
 
-    init {
-        val milestones = ArrayList<Milestone>()
-        val milestoneOne = Milestone("Buy piano books", "4 Jan, 2018", true)
-        milestoneOne.id = "0"
-        milestones.add(milestoneOne)
-        val milestoneTwo = Milestone("Get a used piano from Craigslist", "4 Jun, 2018", false)
-        milestoneTwo.id = "1"
-        milestones.add(milestoneTwo)
-        val milestoneThree = Milestone("Sign up for piano lessons", "25 Dec, 2018", false)
-        milestoneThree.id = "2"
-        milestones.add(milestoneThree)
-        goal = Goal("Learn to play piano", "I want to flex my right brain", milestones = milestones)
-        goal.id = "0"
-    }
 
-    override fun getGoals(mode: Mode): Observable<Goal> {
-        return Observable.just(goal).filter { item ->
+    override fun getGoals(mode: Mode): Flowable<Goal> {
+        return getListOfGoals().flatMapMaybe { goalId ->
+            getGoalForId(goalId)
+        }.filter { item ->
             when (mode) {
                 Mode.ALL -> true
                 Mode.COMPLETED -> item.milestones.getCompletedMilestonesCount() == 3
@@ -40,11 +47,25 @@ class GoalManagerImpl
         }
     }
 
-    override fun getGoalsIds(): Observable<List<String>> {
-        return Observable.create { it.onNext(arrayListOf("test")) }
+    override fun getGoalsIds(): Single<String> {
+        return Observable.concat(
+                getListOfGoals().toObservable().take(5000, TimeUnit.MILLISECONDS),
+                Observable.just(FALLBACK)
+        ).firstOrError()
+    }
+
+    private fun getListOfGoals(): Flowable<String> {
+        val query: DatabaseReference = databaseInstance.reference.child(userGoalIdTable)
+        return RxFirebaseDatabase.observeChildEvent(query, String::class.java).map {
+            val data = it
+            Timber.tag(_tag).d("Goal with %1\$s found", it.value)
+            data.value
+        }
     }
 
     override fun createGoal(goal: Goal): Completable {
         return Completable.create { it.onComplete() }
     }
 }
+
+//-LEBZ33yVsn6cVaFcvf-

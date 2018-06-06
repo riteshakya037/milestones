@@ -7,11 +7,11 @@ import java.util.concurrent.TimeUnit
 class DateUtils {
     companion object {
         @JvmStatic
-        fun getIncomingDateFormat(date: String): DateTime = DateTimeFormat.forPattern("dd MMM, yyyy").parseDateTime(date)
+        fun getIncomingDateFormat(date: String): DateTime = DateTimeFormat.forPattern("MMM dd, yyyy").parseDateTime(date)
 
 
         @JvmStatic
-        fun getOutGoingDateFormat(mDate: DateTime): String = DateTimeFormat.forPattern("dd MMM, yyyy").print(mDate)
+        fun getOutGoingDateFormat(mDate: DateTime): String = DateTimeFormat.forPattern("MMM dd, yyyy").print(mDate)
 
         @JvmStatic
         fun getDaysBetween(earlier: DateTime, later: DateTime): Int {

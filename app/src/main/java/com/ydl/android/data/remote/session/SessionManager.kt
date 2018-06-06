@@ -20,4 +20,6 @@ interface SessionManager {
     fun logout(): Completable
 
     fun getUserDetails(): Observable<String>
+
+    fun getUserID(): String
 }

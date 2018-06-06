@@ -17,6 +17,10 @@ import javax.inject.Inject
 
 class SessionManagerImpl
 @Inject constructor() : SessionManager {
+    override fun getUserID(): String {
+        return getFirebaseUser()!!.uid
+    }
+
     override fun getUserDetails(): Observable<String> {
         return Observable.just(getFirebaseUser()!!.email)
     }

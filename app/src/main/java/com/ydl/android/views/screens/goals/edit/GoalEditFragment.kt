@@ -17,7 +17,9 @@ import kotlinx.android.synthetic.main.fragment_goal_edit.*
 import javax.inject.Inject
 
 class GoalEditFragment : BaseFragment<GoalEditComponent>(), GoalEditContract.View {
+    private lateinit var goal: Goal
     override fun displayGoal(goal: Goal) {
+        this.goal = goal
         goalTitle.text = goal.title
         goalPurpose.text = goal.purpose
         milestoneOne.text = goal.milestones[0].title
@@ -52,7 +54,21 @@ class GoalEditFragment : BaseFragment<GoalEditComponent>(), GoalEditContract.Vie
         addValidationList(milestoneThreeDate.addValidity(NonEmptyValidation()))
 
         navigateBackBtn.setOnClickListener { activity?.finish() }
-        saveGoalBtn.setOnClickListener { }
+        saveGoalBtn.setOnClickListener {
+            goal.title = goalTitle.text
+            goal.purpose = goalPurpose.text
+            goal.milestones[0].title = milestoneOne.text
+            goal.milestones[0].dueDate = milestoneOneDate.text
+            goal.milestones[1].title = milestoneTwo.text
+            goal.milestones[1].dueDate = milestoneTwoDate.text
+            goal.milestones[2].title = milestoneThree.text
+            goal.milestones[2].dueDate = milestoneThreeDate.text
+            presenter.updateGoal(goal)
+        }
+    }
+
+    override fun closeScreen() {
+        activity!!.finish()
     }
 
     override fun setValidity(result: Boolean) {

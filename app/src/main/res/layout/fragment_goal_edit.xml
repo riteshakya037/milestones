@@ -65,7 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Get a PhD in Astronomy (It’s ok to be ambitious!)"
-                android:inputType="text"
+                android:inputType="textCapSentences"
                 android:label="Goal" />
 
             <com.ydl.android.views.components.CustomEditText
@@ -73,7 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="To open a new world for humans"
-                android:inputType="text"
+                android:inputType="textCapSentences"
                 android:label="Purpose" />
 
             <com.ydl.android.views.components.CustomEditText
@@ -81,7 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Decide on which schools to apply"
-                android:inputType="text"
+                android:inputType="textCapSentences"
                 android:label="Milestone 1"
                 app:hasBottomPadding="false" />
 
@@ -98,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-16dp"
                 android:hint="Prepare application docs to submit"
-                android:inputType="text"
+                android:inputType="textCapSentences"
                 android:label="Milestone 2"
                 app:hasBottomPadding="false" />
 
@@ -114,7 +114,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Apply to school and get accepted"
-                android:inputType="text"
+                android:inputType="textCapSentences"
                 android:label="Milestone 3"
                 app:hasBottomPadding="false" />
 

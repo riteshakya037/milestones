@@ -7,6 +7,7 @@ import android.widget.EditText
 import com.ydl.android.utils.validation.Validation
 import com.ydl.android.utils.validation.ValidationResult
 import com.ydl.android.views.components.CustomEditText
+import com.ydl.android.views.components.CustomTextDatePicker
 import io.reactivex.Observable
 import io.reactivex.ObservableOnSubscribe
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -27,6 +28,10 @@ fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
 }
 
 fun CustomEditText.addValidity(validation: Validation): Observable<Boolean> {
+    return this.editText.addValidity(validation)
+}
+
+fun CustomTextDatePicker.addValidity(validation: Validation): Observable<Boolean> {
     return this.editText.addValidity(validation)
 }
 

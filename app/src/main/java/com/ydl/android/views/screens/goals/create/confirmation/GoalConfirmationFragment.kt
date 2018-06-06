@@ -19,8 +19,10 @@ class GoalConfirmationFragment : BaseFragment<GoalComponent>() {
     }
 
     override fun initViews() {
-        confirmationBtn.setOnClickListener { navigator.navigateToMainScreen(activity!!) }
-        activity!!.finish()
+        confirmationBtn.setOnClickListener {
+            navigator.navigateToMainScreen(activity!!)
+            activity!!.finish()
+        }
     }
 
     override fun initInjector(): GoalComponent {

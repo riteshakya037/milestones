@@ -47,9 +47,9 @@ class GoalEditFragment : BaseFragment<GoalEditComponent>(), GoalEditContract.Vie
         addValidationList(milestoneOne.addValidity(NonEmptyValidation()))
         addValidationList(milestoneTwo.addValidity(NonEmptyValidation()))
         addValidationList(milestoneThree.addValidity(NonEmptyValidation()))
-        addValidationList(milestoneOneDate.getObservable())
-        addValidationList(milestoneTwoDate.getObservable())
-        addValidationList(milestoneThreeDate.getObservable())
+        addValidationList(milestoneOneDate.addValidity(NonEmptyValidation()))
+        addValidationList(milestoneTwoDate.addValidity(NonEmptyValidation()))
+        addValidationList(milestoneThreeDate.addValidity(NonEmptyValidation()))
 
         navigateBackBtn.setOnClickListener { activity?.finish() }
         saveGoalBtn.setOnClickListener { }

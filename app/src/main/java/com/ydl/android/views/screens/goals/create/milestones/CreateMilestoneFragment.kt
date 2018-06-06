@@ -29,12 +29,12 @@ class CreateMilestoneFragment : BaseFragment<GoalComponent>(), CreateMilestoneCo
 
     override fun initViews() {
         addPresenter(presenter, this)
-        addValidationList(createMilestonesOneTxt.addValidity(NonEmptyValidation("Field cannot me empty")))
-        addValidationList(createMilestonesTwoTxt.addValidity(NonEmptyValidation("Field cannot me empty")))
-        addValidationList(createMilestonesThreeTxt.addValidity(NonEmptyValidation("Field cannot me empty")))
-        addValidationList(createMilestonesOneDate.getObservable())
-        addValidationList(createMilestonesTwoDate.getObservable())
-        addValidationList(createMilestonesThreeDate.getObservable())
+        addValidationList(createMilestonesOneTxt.addValidity(NonEmptyValidation()))
+        addValidationList(createMilestonesTwoTxt.addValidity(NonEmptyValidation()))
+        addValidationList(createMilestonesThreeTxt.addValidity(NonEmptyValidation()))
+        addValidationList(createMilestonesOneDate.addValidity(NonEmptyValidation()))
+        addValidationList(createMilestonesTwoDate.addValidity(NonEmptyValidation()))
+        addValidationList(createMilestonesThreeDate.addValidity(NonEmptyValidation()))
         createMilestonesBtn.setOnClickListener {
             val milestones = ArrayList<Milestone>()
             milestones.add(Milestone(createMilestonesOneTxt.text, createMilestonesOneDate.text))

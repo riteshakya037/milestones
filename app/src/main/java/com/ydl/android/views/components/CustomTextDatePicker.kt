@@ -4,7 +4,6 @@ import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.Context
 import android.graphics.Rect
-import android.os.Build
 import android.support.constraint.ConstraintLayout
 import android.text.TextUtils
 import android.util.AttributeSet
@@ -25,7 +24,6 @@ import java.util.*
 
 class CustomTextDatePicker : ConstraintLayout {
 
-    private var observable = PublishSubject.create<ValidationResult<String>>()
     private var mDate = DateTime()
 
     val editText: EditText
@@ -47,7 +45,6 @@ class CustomTextDatePicker : ConstraintLayout {
             if (!TextUtils.isEmpty(text)) {
                 this.mDate = DateUtils.getIncomingDateFormat(text)
             }
-            observable.onNext(ValidationResult.success(text))
         }
 
     constructor(context: Context) : super(context) {
@@ -69,21 +66,14 @@ class CustomTextDatePicker : ConstraintLayout {
         setEnabled(isEnabled)
         customEdtText.setOnClickListener {
             val calendar = GregorianCalendar()
-            val themeRes = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                android.R.style.Theme_Material_Light_Dialog_Alert
-            } else {
-                AlertDialog.THEME_HOLO_LIGHT
-            }
             val datePickerDialog = DatePickerDialog(context,
-                    themeRes, { _, year, month, dayOfMonth ->
+                    AlertDialog.THEME_HOLO_LIGHT, { _, year, month, dayOfMonth ->
                 mDate = DateTime(year, month + 1, dayOfMonth, 0, 0)
                 setDate()
-                observable.onNext(ValidationResult.success(text))
             }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
                     calendar.get(Calendar.DAY_OF_MONTH))
 
             datePickerDialog.datePicker.maxDate = Date().time
-            datePickerDialog.setTitle(customEdtText.hint)
             datePickerDialog.show()
         }
     }
@@ -96,10 +86,6 @@ class CustomTextDatePicker : ConstraintLayout {
 
     private fun setDate() {
         customEdtText.setText(DateUtils.getOutGoingDateFormat(mDate))
-    }
-
-    public fun getObservable(): Observable<Boolean> {
-        return observable.map { it.isValid }
     }
 
     override fun setEnabled(enabled: Boolean) {

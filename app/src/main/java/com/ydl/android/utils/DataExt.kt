@@ -13,7 +13,11 @@ fun List<Milestone>.getCompletedMilestonesCount(): Int {
 }
 
 fun List<Milestone>.checkMissed(): Boolean {
-    return this.map { !it.completed && it.dueDateInDateTime.isBeforeNow }.contains(true)
+    return this.map { it.isMissed() }.contains(true)
+}
+
+fun Milestone.isMissed(): Boolean {
+    return !this.completed && this.dueDateInDateTime.isBeforeNow
 }
 
 fun List<Milestone>.getNextMilestone(): Milestone {

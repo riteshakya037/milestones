@@ -9,14 +9,28 @@ class GoalManagerImpl
 @Inject constructor(
 
 ) : GoalManager {
+    override fun getGoalForId(goalId: String): Observable<Goal> {
+        return Observable.just(goal)
+    }
+
+    val goal: Goal
+
+    init {
+        val milestones = ArrayList<Milestone>()
+        val milestoneOne = Milestone("Buy piano books", "4 Jan, 2018", true)
+        milestoneOne.id = "0"
+        milestones.add(milestoneOne)
+        val milestoneTwo = Milestone("Get a used piano from Craigslist", "4 Jun, 2018", false)
+        milestoneTwo.id = "1"
+        milestones.add(milestoneTwo)
+        val milestoneThree = Milestone("Sign up for piano lessons", "25 Dec, 2018", false)
+        milestoneThree.id = "2"
+        milestones.add(milestoneThree)
+        goal = Goal("Learn to play piano", "I want to flex my right brain", milestones = milestones)
+        goal.id = "0"
+    }
 
     override fun getGoals(mode: Mode): Observable<Goal> {
-        val milestones = ArrayList<Milestone>()
-        milestones.add(Milestone("Buy piano books", "4 Jan, 2018", true))
-        milestones.add(Milestone("Get a used piano from Craigslist", "4 Jun, 2018", false))
-        milestones.add(Milestone("Sign up for piano lessons", "25 Dec, 2018", false))
-        val goal = Goal("Learn to play piano", "I want to flex my right brain", milestones = milestones)
-
         return Observable.just(goal).filter { item ->
             when (mode) {
                 Mode.ALL -> true

@@ -33,6 +33,9 @@ class InProgressGoalFragment : BaseFragment<GoalListComponent>(), InProgressGoal
         addPresenter(presenter, this)
         inProgressList.adapter = adapter
         inProgressList.layoutManager = LinearLayoutManager(context)
+        adapter.singleClickPublish.doOnNext {
+            navigator.navigateToGoalDetail(context!!, it.id)
+        }.subscribe()
     }
 
     override fun addGoal(goal: Goal) {

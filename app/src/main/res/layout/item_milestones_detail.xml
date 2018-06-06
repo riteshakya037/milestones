@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/vertical_margin"
+    android:paddingEnd="24dp"
+    android:paddingStart="24dp"
+    android:paddingTop="@dimen/vertical_margin_large">
+
+    <TextView
+        android:id="@+id/goalCountTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:fontFamily="@font/open_sans_bold"
+        android:gravity="center"
+        android:text="1:"
+        android:textColor="#464646"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/goalTitle"
+        style="@style/TextAppearance.Widget.Goal.Title"
+        android:paddingEnd="@dimen/vertical_margin"
+        android:paddingStart="@dimen/vertical_margin"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/goalPurpose"
+        app:layout_constraintEnd_toStartOf="@id/goalCompleted"
+        app:layout_constraintStart_toEndOf="@id/goalCountTxt"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Learn to play piano" />
+
+    <TextView
+        android:id="@+id/goalPurpose"
+        style="@style/TextAppearance.Widget.Goal.Purpose"
+        android:paddingEnd="@dimen/vertical_margin"
+        android:paddingStart="@dimen/vertical_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/goalCountTxt"
+        app:layout_constraintTop_toBottomOf="@id/goalTitle"
+        tools:text="due by 13 Dec, 2018" />
+
+
+    <android.support.v7.widget.AppCompatCheckBox
+        android:id="@+id/goalCompleted"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:button="@drawable/checkbox_selector"
+        android:text="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/goalStatus"
+        style="@style/TextAppearance.Widget.Goal.Badge"
+        android:layout_marginEnd="@dimen/vertical_margin"
+        android:text="Missed!"
+        app:layout_constraintEnd_toStartOf="@id/goalCompleted"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/goalPurpose"
+        app:layout_constraintTop_toTopOf="@id/goalPurpose" />
+
+
+</android.support.constraint.ConstraintLayout>

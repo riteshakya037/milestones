@@ -39,6 +39,7 @@ class GoalDetailFragment : BaseFragment<GoalDetailComponent>(), GoalDetailsContr
         addPresenter(presenter, this)
         presenter.getGoalForId(getGoalId())
         navigateBackBtn.setOnClickListener { activity?.finish() }
+        editGoalBtn.setOnClickListener { navigator.navigateToEditGoal(activity!!, getGoalId()) }
         milestonesList.adapter = adapter
         milestonesList.layoutManager = LinearLayoutManager(context)
     }

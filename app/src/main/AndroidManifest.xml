@@ -12,7 +12,9 @@
         android:theme="@style/MilestoneTheme">
 
 
-        <activity android:name=".views.screens.landing.LandingActivity" />
+        <activity
+            android:name=".views.screens.landing.LandingActivity"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity android:name=".views.screens.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,8 +23,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".views.screens.main.MainActivity" />
-        <activity android:name=".views.screens.goals.create.GoalActivity" />
+        <activity
+            android:name=".views.screens.goals.create.GoalActivity"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity android:name=".views.screens.goals.details.GoalDetailActivity" />
+        <activity
+            android:name=".views.screens.goals.edit.GoalEditActivity"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
     </application>
 
 </manifest>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_toolbar"
+        android:paddingTop="24dp"
+        app:elevation="4dp">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:contentInsetStart="0dp"
+            app:contentInsetStartWithNavigation="0dp">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/navigateBackBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="@dimen/vertical_margin_small"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:src="@drawable/icon_back"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/saveGoalBtn"
+                    style="@style/TextAppearance.Widget.Toolbar.TextButton"
+                    android:text="Save"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/confirmImage"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/vertical_margin">
+
+            <com.ydl.android.views.components.CustomEditText
+                android:id="@+id/goalTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Get a PhD in Astronomy (It’s ok to be ambitious!)"
+                android:inputType="text"
+                android:label="Goal" />
+
+            <com.ydl.android.views.components.CustomEditText
+                android:id="@+id/goalPurpose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="To open a new world for humans"
+                android:inputType="text"
+                android:label="Purpose" />
+
+            <com.ydl.android.views.components.CustomEditText
+                android:id="@+id/milestoneOne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Decide on which schools to apply"
+                android:inputType="text"
+                android:label="Milestone 1"
+                app:hasBottomPadding="false" />
+
+            <com.ydl.android.views.components.CustomTextDatePicker
+                android:id="@+id/milestoneOneDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:hint="Select due date" />
+
+            <com.ydl.android.views.components.CustomEditText
+                android:id="@+id/milestoneTwo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-16dp"
+                android:hint="Prepare application docs to submit"
+                android:inputType="text"
+                android:label="Milestone 2"
+                app:hasBottomPadding="false" />
+
+            <com.ydl.android.views.components.CustomTextDatePicker
+                android:id="@+id/milestoneTwoDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:hint="Select due date" />
+
+            <com.ydl.android.views.components.CustomEditText
+                android:id="@+id/milestoneThree"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Apply to school and get accepted"
+                android:inputType="text"
+                android:label="Milestone 3"
+                app:hasBottomPadding="false" />
+
+            <com.ydl.android.views.components.CustomTextDatePicker
+                android:id="@+id/milestoneThreeDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:hint="Select due date" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -9,7 +9,7 @@ import com.ydl.android.utils.validation.ValidationResult
  * @author Ritesh Shakya
  */
 
-class NonEmptyValidation(private val reason: String) : Validation {
+class NonEmptyValidation(private val reason: String = "Non empty field") : Validation {
 
     override fun validate(s: String): ValidationResult<Any> {
         return if (!TextUtils.isEmpty(s.trim())) {

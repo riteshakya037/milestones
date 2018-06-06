@@ -9,6 +9,8 @@ import com.ydl.android.views.screens.goals.create.goal.CreateGoalFragment
 import com.ydl.android.views.screens.goals.create.milestones.CreateMilestoneFragment
 import com.ydl.android.views.screens.goals.details.GoalDetailActivity
 import com.ydl.android.views.screens.goals.details.GoalDetailFragment
+import com.ydl.android.views.screens.goals.edit.GoalEditActivity
+import com.ydl.android.views.screens.goals.edit.GoalEditFragment
 import com.ydl.android.views.screens.goals.listing.completed.CompletedGoalFragment
 import com.ydl.android.views.screens.goals.listing.inprogress.InProgressGoalFragment
 import com.ydl.android.views.screens.landing.LandingActivity
@@ -48,6 +50,13 @@ class Navigator @Inject constructor() {
         Timber.tag(_tag).i("Navigate to Goal Detail for $id")
         context.startActivity(GoalDetailActivity.newInstance(context, id))
     }
+
+
+    fun navigateToEditGoal(context: Context, goalId: String) {
+        Timber.tag(_tag).i("Navigate to Goal Edit for $goalId")
+        context.startActivity(GoalEditActivity.newInstance(context, goalId))
+    }
+
 
     fun getSplashFragment(context: Context): Fragment {
         Timber.tag(_tag).i("Attached: Splash Fragment to ${context::class.java.simpleName}")
@@ -104,5 +113,9 @@ class Navigator @Inject constructor() {
         return GoalDetailFragment.newInstance(goalId)
     }
 
+    fun getGoalEditFragment(context: Context, goalId: String): Fragment {
+        Timber.tag(_tag).i("Attached: Goal edit Fragment to ${context::class.java.simpleName}")
+        return GoalEditFragment.newInstance(goalId)
+    }
 
 }

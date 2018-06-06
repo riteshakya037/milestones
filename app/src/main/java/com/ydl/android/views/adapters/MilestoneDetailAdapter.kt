@@ -27,6 +27,7 @@ class MilestoneDetailAdapter @Inject constructor() : RecyclerView.Adapter<Milest
     }
 
     fun addMilestones(milestones: List<Milestone>) {
+        mList.clear()
         mList.addAll(milestones)
         notifyDataSetChanged()
     }

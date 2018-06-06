@@ -5,9 +5,11 @@ import com.google.firebase.database.FirebaseDatabase
 import com.ydl.android.data.helper.DatabaseNames
 import com.ydl.android.data.remote.goals.GoalManager.Companion.FALLBACK
 import com.ydl.android.data.remote.session.SessionManager
-import com.ydl.android.utils.getCompletedMilestonesCount
 import durdinapps.rxfirebase2.RxFirebaseDatabase
-import io.reactivex.*
+import io.reactivex.Completable
+import io.reactivex.Flowable
+import io.reactivex.Observable
+import io.reactivex.Single
 import timber.log.Timber
 import java.io.File
 import java.util.concurrent.TimeUnit
@@ -19,9 +21,9 @@ class GoalManagerImpl
 ) : GoalManager {
     private val _tag: String = "GoalManager"
 
-    override fun getGoalForId(goalId: String): Maybe<Goal> {
+    override fun getGoalForId(goalId: String): Flowable<Goal> {
         val query: DatabaseReference = databaseInstance.reference.child(goalTable + File.separator + goalId)
-        return RxFirebaseDatabase.observeSingleValueEvent(query, Goal::class.java).map {
+        return RxFirebaseDatabase.observeValueEvent(query, Goal::class.java).map {
             it.id = goalId
             it
         }.doOnError { throwable ->
@@ -35,15 +37,9 @@ class GoalManagerImpl
     private val databaseInstance = FirebaseDatabase.getInstance()
 
 
-    override fun getGoals(mode: Mode): Flowable<Goal> {
-        return getListOfGoals().flatMapMaybe { goalId ->
+    override fun getGoals(): Flowable<Goal> {
+        return getListOfGoals().flatMap { goalId ->
             getGoalForId(goalId)
-        }.filter { item ->
-            when (mode) {
-                Mode.ALL -> true
-                Mode.COMPLETED -> item.milestones.getCompletedMilestonesCount() == 3
-                Mode.IN_PROGRESS -> item.milestones.getCompletedMilestonesCount() < 3
-            }
         }
     }
 

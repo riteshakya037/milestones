@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.ydl.android.R
 import com.ydl.android.data.remote.goals.Goal
+import com.ydl.android.data.remote.goals.Mode
 import com.ydl.android.utils.comparators.GoalTimeComparator
+import com.ydl.android.utils.filterMode
 import com.ydl.android.views.adapters.holders.InProgressViewHolder
 import io.reactivex.subjects.PublishSubject
 import java.util.*
@@ -19,7 +21,7 @@ import kotlin.collections.ArrayList
 class InProgressGoalsAdapter @Inject constructor() : RecyclerView.Adapter<InProgressViewHolder>() {
 
     internal val singleClickPublish = PublishSubject.create<Goal>()
-    private val mList: ArrayList<Goal> = ArrayList()
+    private var mList: ArrayList<Goal> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InProgressViewHolder {
         val itemView = LayoutInflater.from(parent.context)
@@ -37,9 +39,12 @@ class InProgressGoalsAdapter @Inject constructor() : RecyclerView.Adapter<InProg
     fun addGoal(goal: Goal) {
         if (!mList.contains(goal)) {
             mList.add(goal)
-            Collections.sort(mList, GoalTimeComparator())
-            notifyDataSetChanged()
+        } else {
+            mList[mList.indexOf(goal)] = goal
         }
+        mList = ArrayList(mList.filterMode(Mode.IN_PROGRESS))
+        Collections.sort(mList, GoalTimeComparator())
+        notifyDataSetChanged()
     }
 
 

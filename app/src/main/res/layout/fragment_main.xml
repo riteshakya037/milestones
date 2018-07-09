@@ -55,6 +55,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/open_sans_bold"
                         android:includeFontPadding="false"
+                        android:text="0"
                         android:textColor="@android:color/white"
                         android:textSize="60sp"
                         app:layout_constraintBottom_toTopOf="@+id/toolbar.subtitle"
@@ -63,20 +64,19 @@
                         app:layout_constraintHorizontal_chainStyle="packed"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_chainStyle="packed"
-                        tools:text="12" />
+                        app:layout_constraintVertical_chainStyle="packed" />
 
                     <TextView
                         android:id="@+id/totalGoalTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/open_sans_bold"
+                        android:text="/0"
                         android:textColor="@android:color/white"
                         android:textSize="20sp"
                         app:layout_constraintBaseline_toBaselineOf="@id/currentGoalTxt"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/currentGoalTxt"
-                        tools:text="/52" />
+                        app:layout_constraintStart_toEndOf="@id/currentGoalTxt" />
 
                     <TextView
                         android:id="@+id/toolbar.subtitle"

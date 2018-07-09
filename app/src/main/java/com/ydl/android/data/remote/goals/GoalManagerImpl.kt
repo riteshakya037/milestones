@@ -3,7 +3,6 @@ package com.ydl.android.data.remote.goals
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.ydl.android.data.helper.DatabaseNames
-import com.ydl.android.data.remote.goals.GoalManager.Companion.FALLBACK
 import com.ydl.android.data.remote.session.SessionManager
 import com.ydl.android.utils.DateUtils
 import com.ydl.android.utils.shouldHaveCrushedDate
@@ -12,7 +11,6 @@ import com.ydl.android.utils.toMap
 import durdinapps.rxfirebase2.RxFirebaseDatabase
 import io.reactivex.Completable
 import io.reactivex.Flowable
-import io.reactivex.Observable
 import io.reactivex.Single
 import org.joda.time.DateTime
 import timber.log.Timber
@@ -63,10 +61,7 @@ class GoalManagerImpl
     }
 
     override fun getGoalsIds(): Single<String> {
-        return Observable.concat(
-                getListOfGoals().toObservable().take(500, TimeUnit.MILLISECONDS),
-                Observable.just(FALLBACK)
-        ).firstOrError()
+        return getListOfGoals().firstOrError()
     }
 
     private fun getListOfGoals(): Flowable<String> {

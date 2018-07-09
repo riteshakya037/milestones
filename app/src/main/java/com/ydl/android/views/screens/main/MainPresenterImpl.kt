@@ -28,24 +28,26 @@ class MainPresenterImpl
 
     private fun checkHasGoals() {
         manage(goalManager.getGoalsIds().subscribe({
-            if (it == GoalManager.FALLBACK) {
-                view.createNewGoal()
-            }
         }, {
+            if (it is NoSuchElementException) {
+                view.createNewGoal()
+            } else {
+                view.showInAppError(it.message!!)
+            }
         }))
     }
 
     override fun onCreate() {
         checkHasGoals()
         mList.clear()
-        manage(goalManager.getGoals().doOnNext({
+        manage(goalManager.getGoals().doOnNext {
             if (!mList.contains(it))
                 mList.add(it)
             else
                 mList[mList.indexOf(it)] = it
             view.setCurrentGoals(mList.getCompletedCount())
             view.setTotalGoals(mList.size)
-        }).subscribe())
+        }.subscribe())
     }
 
     private lateinit var view: MainContract.View

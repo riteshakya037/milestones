@@ -8,7 +8,7 @@ import com.ydl.android.di.components.DaggerMainComponent
 import com.ydl.android.di.components.MainComponent
 import com.ydl.android.di.modules.MainModule
 import com.ydl.android.views.adapters.GenericFragmentAdapter
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_main.*
 import javax.inject.Inject
 
 class MainFragment : BaseFragment<MainComponent>(), MainContract.View {
@@ -21,7 +21,7 @@ class MainFragment : BaseFragment<MainComponent>(), MainContract.View {
 
 
     override fun getLayout(): Int {
-        return R.layout.activity_main
+        return R.layout.fragment_main
     }
 
     override fun injectFragment(component: MainComponent) {

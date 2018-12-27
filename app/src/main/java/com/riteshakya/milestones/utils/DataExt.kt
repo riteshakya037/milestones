@@ -18,6 +18,10 @@ fun List<Milestone>.checkMissed(): Boolean {
     return this.map { it.isMissed() }.contains(true)
 }
 
+fun List<Milestone>.hasMilestoneToday(): Boolean {
+    return this.map { it.isDueToday && !it.completed }.contains(true)
+}
+
 fun Milestone.isMissed(): Boolean {
     return !this.completed && this.dueDateInDateTime.isBeforeNow
 }

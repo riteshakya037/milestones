@@ -19,6 +19,12 @@ data class Goal(var title: String = "", var purpose: String = "", var crushedDat
 data class Milestone(var title: String = "", var dueDate: String = "", val completed: Boolean = false) {
     val dueDateInDateTime: DateTime
         get() = DateUtils.getIncomingDateFormat(dueDate)
+    val isDueToday: Boolean
+        get() = dueDateInDateTime.withTimeAtStartOfDay() == DateTime().withTimeAtStartOfDay()
+    val isBeforeNow: Boolean
+        get() = dueDateInDateTime.isBeforeNow
+    val isAfterNow: Boolean
+        get() = dueDateInDateTime.isAfterNow
 }
 
 enum class Mode {

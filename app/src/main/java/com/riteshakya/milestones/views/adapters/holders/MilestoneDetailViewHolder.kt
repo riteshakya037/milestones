@@ -18,21 +18,36 @@ class MilestoneDetailViewHolder(itemView: View) : BindableViewHolder<Milestone>(
 
     override fun bind(item: Milestone) {
         super.bind(item)
-        itemView.goalCountTxt.text = "${adapterPosition + 1}:"
-        val title = SpannableString(item.title)
-        if (item.completed)
-            title.setSpan(StrikethroughSpan(), 0, title.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        itemView.run {
+            goalCountTxt.text = "${adapterPosition + 1}:"
+            val title = SpannableString(item.title)
+            if (item.completed)
+                title.setSpan(StrikethroughSpan(), 0, title.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
 
-        itemView.goalTitle.text = title
-        val summary = SpannableString("due by ${item.dueDate}")
-        if (item.completed)
-            summary.setSpan(StrikethroughSpan(), 0, summary.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-        itemView.goalPurpose.text = summary
-        itemView.goalCompleted.isChecked = item.completed
-        itemView.goalStatus.visibility = if (item.isMissed()) VISIBLE else GONE
+            goalTitle.text = title
+            val summary: SpannableString = when {
+                item.isDueToday -> SpannableString("due today")
+                item.isBeforeNow -> SpannableString("was due on ${item.dueDate}")
+                else -> SpannableString("due by ${item.dueDate}")
+            }
+            if (item.completed)
+                summary.setSpan(StrikethroughSpan(), 0, summary.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+            goalPurpose.text = summary
+            goalCompleted.isChecked = item.completed
+            if (item.isMissed()) {
+                if (item.isDueToday) {
+                    goalStatus.text = "Today!"
+                } else {
+                    goalStatus.text = "Missed!"
+                }
+                goalStatus.visibility = VISIBLE
+            } else {
+                goalStatus.visibility = GONE
+            }
 
-        itemView.goalCompleted.setOnCheckedChangeListener { _, isChecked ->
-            checkListener.onNext(isChecked)
+            goalCompleted.setOnCheckedChangeListener { _, isChecked ->
+                checkListener.onNext(isChecked)
+            }
         }
     }
 }

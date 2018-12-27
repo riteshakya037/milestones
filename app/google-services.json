@@ -8,15 +8,19 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1016676090953:android:5caa9554d433abd5",
+        "mobilesdk_app_id": "1:1016676090953:android:ce3bdcd7fc921775",
         "android_client_info": {
-          "package_name": "com.ydl.android"
+          "package_name": "com.riteshakya.milestones.debug"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1016676090953-g519r28a6diop17qjaobi7c1fb31kjok.apps.googleusercontent.com",
-          "client_type": 3
+          "client_id": "1016676090953-redu356c8nu9bhlvs557374l9flt2dk3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.riteshakya.milestones.debug",
+            "certificate_hash": "d697ae4df4089ceb41d2ccb3cf121ec9062c24b7"
+          }
         },
         {
           "client_id": "1016676090953-g519r28a6diop17qjaobi7c1fb31kjok.apps.googleusercontent.com",
@@ -33,8 +37,20 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1016676090953-g519r28a6diop17qjaobi7c1fb31kjok.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1016676090953-1nd1nhtmea1io2v4fer52g44qaere3hq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ydl.milestones"
+              }
+            }
+          ]
         },
         "ads_service": {
           "status": 2

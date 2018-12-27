@@ -1,5 +1,5 @@
 ext.appConfig = [
-        applicationId    : 'com.ydl.android',
+        applicationId    : 'com.riteshakya.milestones',
         versionCode      : 1,
         versionName      : "1.0",
         buildToolsVersion: "28.0.3",

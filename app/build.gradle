@@ -6,6 +6,20 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+enum BuildType {
+    DEBUG,
+    RELEASE
+}
+
+static def getAppName(BuildType buildType) {
+    String APP_NAME = "Milestones"
+    switch (buildType) {
+        case BuildType.DEBUG:
+            return APP_NAME + " - " + BuildType.DEBUG.name()
+        case BuildType.RELEASE:
+            return APP_NAME
+    }
+}
 android {
     compileSdkVersion 28
     def versionPropsFile = file('version.properties')
@@ -33,9 +47,14 @@ android {
 
     }
     buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            resValue "string", "app_name", getAppName(BuildType.DEBUG)
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            resValue "string", "app_name", getAppName(BuildType.RELEASE)
         }
     }
 }

@@ -1,0 +1,107 @@
+package com.riteshakya.milestones.views.screens.goals.edit
+
+import android.os.Bundle
+import android.view.View.GONE
+import android.view.View.VISIBLE
+import androidx.fragment.app.Fragment
+import com.riteshakya.milestones.R
+import com.riteshakya.milestones.base.BaseFragment
+import com.riteshakya.milestones.data.exceptions.GoalNotFoundException
+import com.riteshakya.milestones.data.remote.goals.Goal
+import com.riteshakya.milestones.di.components.DaggerGoalEditComponent
+import com.riteshakya.milestones.di.components.GoalEditComponent
+import com.riteshakya.milestones.di.modules.GoalEditModule
+import com.riteshakya.milestones.utils.addValidity
+import com.riteshakya.milestones.utils.validation.types.NonEmptyValidation
+import kotlinx.android.synthetic.main.fragment_goal_edit.*
+import javax.inject.Inject
+
+class GoalEditFragment : BaseFragment<GoalEditComponent>(), GoalEditContract.View {
+    private lateinit var goal: Goal
+    override fun displayGoal(goal: Goal) {
+        this.goal = goal
+        goalTitle.text = goal.title
+        goalPurpose.text = goal.purpose
+        milestoneOne.text = goal.milestones[0].title
+        milestoneTwo.text = goal.milestones[1].title
+        milestoneThree.text = goal.milestones[2].title
+        milestoneOneDate.text = goal.milestones[0].dueDate
+        milestoneTwoDate.text = goal.milestones[1].dueDate
+        milestoneThreeDate.text = goal.milestones[2].dueDate
+    }
+
+    @Inject
+    lateinit var presenter: GoalEditContract.Presenter
+
+    override fun getLayout(): Int {
+        return R.layout.fragment_goal_edit
+    }
+
+    override fun injectFragment(component: GoalEditComponent) {
+        component.inject(this)
+    }
+
+    override fun initViews() {
+        addPresenter(presenter, this)
+        presenter.getGoalForId(getGoalId())
+        addValidationList(goalTitle.addValidity(NonEmptyValidation()))
+        addValidationList(goalPurpose.addValidity(NonEmptyValidation()))
+        addValidationList(milestoneOne.addValidity(NonEmptyValidation()))
+        addValidationList(milestoneTwo.addValidity(NonEmptyValidation()))
+        addValidationList(milestoneThree.addValidity(NonEmptyValidation()))
+        addValidationList(milestoneOneDate.addValidity(NonEmptyValidation()))
+        addValidationList(milestoneTwoDate.addValidity(NonEmptyValidation()))
+        addValidationList(milestoneThreeDate.addValidity(NonEmptyValidation()))
+
+        navigateBackBtn.setOnClickListener { activity?.finish() }
+        saveGoalBtn.setOnClickListener {
+            goal.title = goalTitle.text
+            goal.purpose = goalPurpose.text
+            goal.milestones[0].title = milestoneOne.text
+            goal.milestones[0].dueDate = milestoneOneDate.text
+            goal.milestones[1].title = milestoneTwo.text
+            goal.milestones[1].dueDate = milestoneTwoDate.text
+            goal.milestones[2].title = milestoneThree.text
+            goal.milestones[2].dueDate = milestoneThreeDate.text
+            presenter.updateGoal(goal)
+        }
+    }
+
+    override fun closeScreen() {
+        activity!!.finish()
+    }
+
+    override fun setValidity(result: Boolean) {
+        saveGoalBtn.visibility = if (result) VISIBLE else GONE
+    }
+
+    override fun initInjector(): GoalEditComponent {
+        return DaggerGoalEditComponent.builder()
+                .applicationComponent(applicationComponent)
+                .goalEditModule(GoalEditModule())
+                .build()
+    }
+
+    override fun showInAppError(message: String) {
+        showInAppError("Error fetching goals", message)
+    }
+
+    private fun getGoalId(): String {
+        return if (arguments != null && arguments!!.containsKey(ARGS_GOAL_ID))
+            arguments!!.getString(ARGS_GOAL_ID)
+        else throw GoalNotFoundException()
+    }
+
+    companion object {
+        private const val ARGS_GOAL_ID: String = "args:goal_id"
+
+        @JvmStatic
+        fun newInstance(goalId: String): Fragment {
+            val fragment = GoalEditFragment()
+            val bundle = Bundle()
+            bundle.putString(ARGS_GOAL_ID, goalId)
+            fragment.arguments = bundle
+            return fragment
+        }
+    }
+}

@@ -48,7 +48,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.appcompat.widget.Toolbar>
 
-        <com.ydl.android.views.components.CustomTabLayout
+        <com.riteshakya.milestones.views.components.CustomTabLayout
             android:id="@+id/landingTabLayout"
             style="@style/Widget.MaterialComponents.TabLayout.Colored"
             android:layout_width="match_parent"

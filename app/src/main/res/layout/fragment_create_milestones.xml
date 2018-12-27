@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/activity_vertical_margin">
 
-            <com.ydl.android.views.components.CustomEditText
+            <com.riteshakya.milestones.views.components.CustomEditText
                 android:id="@+id/createMilestonesOneTxt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.ydl.android.views.components.CustomTextDatePicker
+            <com.riteshakya.milestones.views.components.CustomTextDatePicker
                 android:id="@+id/createMilestonesOneDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/createMilestonesOneTxt" />
 
-            <com.ydl.android.views.components.CustomEditText
+            <com.riteshakya.milestones.views.components.CustomEditText
                 android:id="@+id/createMilestonesTwoTxt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/createMilestonesOneDate" />
 
-            <com.ydl.android.views.components.CustomTextDatePicker
+            <com.riteshakya.milestones.views.components.CustomTextDatePicker
                 android:id="@+id/createMilestonesTwoDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/createMilestonesTwoTxt" />
 
-            <com.ydl.android.views.components.CustomEditText
+            <com.riteshakya.milestones.views.components.CustomEditText
                 android:id="@+id/createMilestonesThreeTxt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -111,7 +111,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/createMilestonesTwoDate" />
 
-            <com.ydl.android.views.components.CustomTextDatePicker
+            <com.riteshakya.milestones.views.components.CustomTextDatePicker
                 android:id="@+id/createMilestonesThreeDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

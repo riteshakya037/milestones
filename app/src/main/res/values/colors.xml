@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <color name="colorAccent">#FF4081</color>
-    <color name="primary_material_light_1">#ff4d4d</color>
-    <color name="accent_material_light" tools:override="true">#ff4d4d</color>
+    <color name="colorAccent">#FFC100</color>
+    <color name="primary_material_light_1">#D11149</color>
+    <color name="accent_material_light" tools:override="true">#C41E3D</color>
     <color name="background_material_light" tools:override="true">#ffffff</color>
 </resources>

@@ -14,18 +14,11 @@
         android:layout_height="match_parent"
         tools:context=".views.screens.main.MainActivity">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@drawable/background_toolbar"
-            app:layout_constraintBottom_toBottomOf="@id/appbar"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <android.support.design.widget.AppBarLayout
             android:id="@+id/appbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/full_bg_with_icons"
+            android:layout_height="230dp"
+            android:background="@drawable/background_fullscreen"
             app:elevation="4dp">
 
             <android.support.v7.widget.Toolbar
@@ -45,9 +38,9 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_margin="@dimen/vertical_margin"
-                        android:src="@drawable/icon_menu"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/icon_menu" />
 
                     <TextView
                         android:id="@+id/currentGoalTxt"
@@ -85,7 +78,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/vertical_margin"
                         android:fontFamily="@font/open_sans_bold"
-                        android:text="milestones crushed!"
+                        android:text="Milestones Crushed!"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -124,7 +117,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/vertical_margin"
-            android:src="@drawable/app_icon"
+            android:src="@drawable/ic_icon"
             app:backgroundTint="#FF4D4D"
             app:fabCustomSize="70dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -152,21 +145,19 @@
                 android:text="Settings"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/navHelp"
-                style="@style/TextAppearance.Widget.Navigation.Text"
-                android:layout_marginTop="0dp"
-                android:text="Help"
-                app:layout_constraintTop_toBottomOf="@id/navSettings" />
+            <!--<TextView-->
+            <!--android:id="@+id/navHelp"-->
+            <!--style="@style/TextAppearance.Widget.Navigation.Text"-->
+            <!--android:layout_marginTop="0dp"-->
+            <!--android:text="Help"-->
+            <!--app:layout_constraintTop_toBottomOf="@id/navSettings" />-->
 
             <TextView
                 android:id="@+id/navLogout"
                 style="@style/TextAppearance.Widget.Navigation.Text"
                 android:layout_marginBottom="@dimen/vertical_margin_large"
-                android:fontFamily="@font/open_sans_regular"
                 android:gravity="end"
                 android:text="Log out"
-                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent" />
         </android.support.constraint.ConstraintLayout>
     </android.support.design.widget.NavigationView>

@@ -29,7 +29,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/vertical_margin"
-                    android:src="@drawable/app_icon"
+                    android:src="@drawable/ic_icon"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/confirmationTitle"
                     app:layout_constraintHorizontal_chainStyle="packed"

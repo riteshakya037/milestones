@@ -39,7 +39,6 @@ class MainFragment : BaseFragment<MainComponent>(), MainContract.View {
 
         mainScreenMenuBtn.setOnClickListener { mainScreenDrawer.openDrawer(GravityCompat.START) }
         navSettings.setOnClickListener { navigator.navigateToSettingScreen(context!!) }
-        navHelp.setOnClickListener { println("Help") }
         navLogout.setOnClickListener { presenter.logOut() }
     }
 

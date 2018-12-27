@@ -34,7 +34,7 @@ class SessionManagerImpl
 
     override fun forgotPassword(email: String): Completable {
         return RxFirebaseAuth.sendPasswordResetEmail(firebaseAuth, email)
-                .onErrorResumeNext({ throwable ->
+                .onErrorResumeNext { throwable ->
                     var output: Throwable = throwable
                     when (throwable) {
                         is TimeoutException -> output = TimeoutException("Connection timeout, please check your network connection and try again")
@@ -47,7 +47,7 @@ class SessionManagerImpl
                         else -> Timber.e(throwable)
                     }
                     Completable.error(output)
-                })
+                }
     }
 
     override fun changePassword(username: String, newPassword: String): Completable {

@@ -58,23 +58,23 @@ abstract class BaseFragment<T> : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        presenters.forEach({ it.onCreate() })
+        presenters.forEach { it.onCreate() }
     }
 
     override fun onResume() {
         super.onResume()
-        presenters.forEach({ it.onResume() })
+        presenters.forEach { it.onResume() }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        presenters.forEach({ it.onDestroy() })
+        presenters.forEach { it.onDestroy() }
         disposables?.forEach { it.dispose() }
     }
 
     override fun onPause() {
         super.onPause()
-        presenters.forEach({ it.onPause() })
+        presenters.forEach { it.onPause() }
     }
 
     open fun showProgressDialog() {
@@ -95,14 +95,14 @@ abstract class BaseFragment<T> : Fragment() {
     }
 
     private fun initializeValidationObservers() {
-        observerList.combineLatest({ it: List<Boolean> ->
+        observerList.combineLatest { it: List<Boolean> ->
             var output = true
             for (result: Boolean in it)
                 if (!result && output) {
                     output = false
                 }
             output
-        }).subscribe({ result -> setValidity(result) })
+        }.subscribe { result -> setValidity(result) }
     }
 
     open fun setValidity(result: Boolean) {}

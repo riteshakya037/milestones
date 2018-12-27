@@ -28,6 +28,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/registerEmail" />
 
+    <TextView
+        android:id="@+id/passwordHint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Password must have a length of 6 digits and contain a number, alphabet"
+        android:textAppearance="@style/TextAppearance.Widget.Goal.Purpose"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/registerPassword" />
+
     <Button
         android:id="@+id/registerBtn"
         style="@style/Widget.Button"
@@ -35,7 +45,7 @@
         android:text="Sign Up"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordHint" />
 
 
 </android.support.constraint.ConstraintLayout>

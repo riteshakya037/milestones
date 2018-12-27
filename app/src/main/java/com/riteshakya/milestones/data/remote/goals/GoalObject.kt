@@ -5,6 +5,9 @@ import org.joda.time.DateTime
 
 data class Goal(var title: String = "", var purpose: String = "", var crushedDate: String = "", val milestones: List<Milestone> = ArrayList()) {
     internal var id: String = ""
+    var userId: String = ""
+    var addedDate: String = ""
+    var updatedDate: String = ""
 
     override fun equals(other: Any?): Boolean {
         if (other !is Goal) return false

@@ -48,8 +48,11 @@ fun List<Goal>.filterMode(mode: Mode): List<Goal> {
 fun Goal.toMap(): HashMap<String, Any> {
     val result = HashMap<String, Any>()
     result["title"] = title
+    result["userId"] = userId
     result["purpose"] = purpose
     result["crushedDate"] = crushedDate
+    result["updatedDate"] = updatedDate
+    result["addedDate"] = addedDate
     result["milestones"] = milestones.toMap()
     return result
 }

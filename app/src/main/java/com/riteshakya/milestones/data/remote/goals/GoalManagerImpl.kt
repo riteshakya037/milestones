@@ -76,11 +76,14 @@ class GoalManagerImpl
 
     override fun createOrUpdate(goal: Goal): Completable {
         val query: DatabaseReference = databaseInstance.reference.child(goalTable)
-        val key = if (goal.id.isEmpty()) {
-            query.push().key!!
+        var key = goal.id
+        if (goal.id.isEmpty()) {
+            key = query.push().key!!
+            goal.addedDate = DateUtils.getOutGoingDateFormat(DateTime())
         } else {
-            goal.id
+            goal.updatedDate = DateUtils.getOutGoingDateFormat(DateTime())
         }
+        goal.userId = sessionManager.getUserID()
         val postValues = goal.toMap()
         val childUpdates = HashMap<String, Any>()
         childUpdates[key] = postValues

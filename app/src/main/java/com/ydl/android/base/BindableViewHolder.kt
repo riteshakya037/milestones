@@ -1,9 +1,9 @@
 package com.ydl.android.base
 
 import android.content.Context
-import android.support.annotation.CallSuper
-import android.support.v7.widget.RecyclerView
 import android.view.View
+import androidx.annotation.CallSuper
+import androidx.recyclerview.widget.RecyclerView
 
 /**
  * @author Ritesh Shakya

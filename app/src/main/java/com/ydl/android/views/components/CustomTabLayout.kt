@@ -1,9 +1,9 @@
 package com.ydl.android.views.components
 
 import android.content.Context
-import android.support.design.widget.TabLayout
 import android.util.AttributeSet
 import android.view.ViewGroup
+import com.google.android.material.tabs.TabLayout
 
 
 class CustomTabLayout : TabLayout {

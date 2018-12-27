@@ -1,7 +1,7 @@
 package com.ydl.android.views.screens.main
 
-import android.support.v4.view.GravityCompat
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import com.ydl.android.R
 import com.ydl.android.base.BaseFragment
 import com.ydl.android.di.components.DaggerMainComponent

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,8 +11,8 @@
     <TextView
         android:id="@+id/goalTitle"
         style="@style/TextAppearance.Widget.Goal.Title"
-        android:paddingEnd="@dimen/vertical_margin"
         android:paddingStart="@dimen/vertical_margin"
+        android:paddingEnd="@dimen/vertical_margin"
         app:layout_constraintEnd_toStartOf="@id/goalProgress"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,9 +23,9 @@
         android:id="@+id/goalPurpose"
         style="@style/TextAppearance.Widget.Goal.Purpose"
         android:layout_marginTop="@dimen/vertical_margin_small"
-        android:paddingBottom="48dp"
-        android:paddingEnd="@dimen/vertical_margin"
         android:paddingStart="@dimen/vertical_margin"
+        android:paddingEnd="@dimen/vertical_margin"
+        android:paddingBottom="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/goalStatus"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,8 +38,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/vertical_margin"
-        android:paddingEnd="@dimen/vertical_margin"
         android:paddingStart="@dimen/vertical_margin"
+        android:paddingEnd="@dimen/vertical_margin"
         app:layout_constraintBaseline_toBaselineOf="@id/goalTitle"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="1/3" />
@@ -47,10 +47,10 @@
     <TextView
         android:id="@+id/goalStatus"
         style="@style/TextAppearance.Widget.Goal.Badge"
-        android:layout_marginEnd="@dimen/vertical_margin"
         android:layout_marginStart="@dimen/vertical_margin"
+        android:layout_marginEnd="@dimen/vertical_margin"
         android:text="Missed!"
         app:layout_constraintBaseline_toBaselineOf="@id/goalPurpose"
         app:layout_constraintEnd_toEndOf="parent" />
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,8 @@
 package com.ydl.android.views.adapters
 
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import com.ydl.android.R
 import com.ydl.android.data.remote.goals.Goal
 import com.ydl.android.data.remote.goals.GoalManager

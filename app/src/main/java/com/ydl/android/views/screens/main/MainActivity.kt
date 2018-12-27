@@ -1,7 +1,7 @@
 package com.ydl.android.views.screens.main
 
 import android.os.Bundle
-import android.support.v4.view.GravityCompat
+import androidx.core.view.GravityCompat
 import com.ydl.android.R
 import com.ydl.android.base.BaseActivity
 import com.ydl.android.base.BasePresenter

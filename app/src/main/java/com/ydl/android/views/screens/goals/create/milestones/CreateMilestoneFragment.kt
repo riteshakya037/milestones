@@ -1,7 +1,7 @@
 package com.ydl.android.views.screens.goals.create.milestones
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import com.ydl.android.R
 import com.ydl.android.base.BaseFragment
 import com.ydl.android.data.remote.goals.Milestone

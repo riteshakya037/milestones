@@ -1,7 +1,7 @@
 package com.ydl.android.views.screens.goals.listing.inprogress
 
-import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ydl.android.R
 import com.ydl.android.base.BaseFragment
 import com.ydl.android.data.remote.goals.Goal

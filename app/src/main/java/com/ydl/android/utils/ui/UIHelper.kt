@@ -1,11 +1,11 @@
 package com.ydl.android.utils.ui
 
 import android.app.Activity
-import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 import javax.inject.Inject
 
 /**

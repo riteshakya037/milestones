@@ -1,6 +1,6 @@
 package com.ydl.android.views.screens.goals.create.goal
 
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import com.ydl.android.R
 import com.ydl.android.base.BaseFragment
 import com.ydl.android.di.components.DaggerGoalComponent

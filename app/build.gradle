@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     def versionPropsFile = file('version.properties')
 
     if (versionPropsFile.canRead()) {
@@ -45,10 +45,11 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 
     implementation libraries.kotlinJdk
-    implementation libraries.supportAppCompat
-    implementation libraries.supportDesign
-    implementation libraries.constraintLayout
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha01'
+    implementation 'com.google.android.material:material:1.1.0-alpha02'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha3'
     implementation libraries.dagger
+    implementation 'com.google.android.material:material:1.0.0'
 
     implementation libraries.rxAndroid
     implementation libraries.rxJava
@@ -66,8 +67,8 @@ dependencies {
     kapt libraries.daggerCompiler
     kaptTest libraries.daggerCompiler
 
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 }
 
 apply plugin: 'com.google.gms.google-services'

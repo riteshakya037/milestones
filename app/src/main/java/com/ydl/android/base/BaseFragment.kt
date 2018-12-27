@@ -1,12 +1,12 @@
 package com.ydl.android.base
 
 import android.os.Bundle
-import android.support.annotation.LayoutRes
-import android.support.v4.app.Fragment
-import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
 import com.ydl.android.di.components.ApplicationComponent
 import com.ydl.android.utils.combineLatest
 import com.ydl.android.utils.navigation.Navigator
@@ -108,7 +108,7 @@ abstract class BaseFragment<T> : Fragment() {
     open fun setValidity(result: Boolean) {}
 
     fun showInAppError(title: String, message: String, callback: Callback?) {
-        AlertDialog.Builder(activity())
+        AlertDialog.Builder(context!!)
                 .setTitle(title)
                 .setMessage(message)
                 .setPositiveButton(getString(android.R.string.ok)) { dialog, _ ->

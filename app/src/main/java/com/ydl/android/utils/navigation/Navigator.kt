@@ -2,7 +2,7 @@ package com.ydl.android.utils.navigation
 
 import android.content.Context
 import android.content.Intent
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import com.ydl.android.views.screens.goals.create.GoalActivity
 import com.ydl.android.views.screens.goals.create.confirmation.GoalConfirmationFragment
 import com.ydl.android.views.screens.goals.create.goal.CreateGoalFragment

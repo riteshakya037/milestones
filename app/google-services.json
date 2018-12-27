@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "1016676090953",
-    "firebase_url": "https://milestones-42241.firebaseio.com",
-    "project_id": "milestones-42241",
-    "storage_bucket": "milestones-42241.appspot.com"
+    "project_number": "721950928769",
+    "firebase_url": "https://milestones-b4f82.firebaseio.com",
+    "project_id": "milestones-b4f82",
+    "storage_bucket": "milestones-b4f82.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1016676090953:android:ce3bdcd7fc921775",
+        "mobilesdk_app_id": "1:721950928769:android:138b871b1f495f4b",
         "android_client_info": {
-          "package_name": "com.riteshakya.milestones.debug"
+          "package_name": "com.riteshakya.milestones"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1016676090953-redu356c8nu9bhlvs557374l9flt2dk3.apps.googleusercontent.com",
+          "client_id": "721950928769-50h7saufm05mf4mu7kasvlass1fm8g4n.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.riteshakya.milestones.debug",
-            "certificate_hash": "d697ae4df4089ceb41d2ccb3cf121ec9062c24b7"
+            "package_name": "com.riteshakya.milestones",
+            "certificate_hash": "e6551876b5022197dcbad97bbfb61b7f4c00cdf3"
           }
         },
         {
-          "client_id": "1016676090953-g519r28a6diop17qjaobi7c1fb31kjok.apps.googleusercontent.com",
+          "client_id": "721950928769-41stu9ufjv3bh2gqimu72qa1v91ic9ve.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCpbrBW1i-tqwCml_f_CpwuNrDSn4sIX3Q"
+          "current_key": "AIzaSyDn1W3c8ijI0q7X-OTIWwfvUITbYbTjRGM"
         }
       ],
       "services": {
@@ -40,15 +40,52 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "1016676090953-g519r28a6diop17qjaobi7c1fb31kjok.apps.googleusercontent.com",
+              "client_id": "721950928769-41stu9ufjv3bh2gqimu72qa1v91ic9ve.apps.googleusercontent.com",
               "client_type": 3
-            },
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:721950928769:android:557af54b40c6b0ad",
+        "android_client_info": {
+          "package_name": "com.riteshakya.milestones.staging"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "721950928769-evt1np49h3effdnbageujo4nu28cutkk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.riteshakya.milestones.staging",
+            "certificate_hash": "d697ae4df4089ceb41d2ccb3cf121ec9062c24b7"
+          }
+        },
+        {
+          "client_id": "721950928769-41stu9ufjv3bh2gqimu72qa1v91ic9ve.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDn1W3c8ijI0q7X-OTIWwfvUITbYbTjRGM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
             {
-              "client_id": "1016676090953-1nd1nhtmea1io2v4fer52g44qaere3hq.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.ydl.milestones"
-              }
+              "client_id": "721950928769-41stu9ufjv3bh2gqimu72qa1v91ic9ve.apps.googleusercontent.com",
+              "client_type": 3
             }
           ]
         },

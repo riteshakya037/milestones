@@ -38,20 +38,33 @@ android {
             minSdkVersion appConfig.minSdkVersion
             targetSdkVersion appConfig.targetSdkVersion
             compileSdkVersion appConfig.compileSdkVersion
-            versionCode code
-            versionName appConfig.versionName
+            versionCode appConfig.versionMajor * 1000000 + appConfig.versionMinor * 10000 + code
+            versionName "${appConfig.versionMajor}.${appConfig.versionMinor}.${code}"
             vectorDrawables.useSupportLibrary = true
 
             testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         }
 
     }
+    signingConfigs {
+        release {
+            def keystorePropertiesFile = file("keystore/release.keystore.properties")
+            def keystoreProperties = new Properties()
+            keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+            storeFile file(keystoreProperties['store.file'])
+            storePassword keystoreProperties['key.store.password']
+            keyAlias keystoreProperties['key.alias']
+            keyPassword keystoreProperties['key.alias.password']
+        }
+    }
     buildTypes {
         debug {
-            applicationIdSuffix ".debug"
+            applicationIdSuffix ".staging"
             resValue "string", "app_name", getAppName(BuildType.DEBUG)
         }
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             resValue "string", "app_name", getAppName(BuildType.RELEASE)

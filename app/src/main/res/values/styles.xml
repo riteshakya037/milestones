@@ -54,8 +54,8 @@
     </style>
 
     <style name="Widget.Button.Light" parent="Widget.Button">
-        <item name="android:background">@drawable/background_button_light</item>
-        <item name="android:textColor">@color/primary_material_light_1</item>
+        <item name="android:backgroundTint">@drawable/background_button_light</item>
+        <item name="android:textColor">#F17105</item>
     </style>
 
 

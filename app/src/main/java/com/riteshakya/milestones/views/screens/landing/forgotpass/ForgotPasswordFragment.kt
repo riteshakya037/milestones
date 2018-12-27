@@ -48,7 +48,7 @@ class ForgotPasswordFragment : BaseFragment<ForgotPasswordComponent>(), ForgotPa
     }
 
     override fun onResetPasswordSuccess() {
-        Toast.makeText(activity, "success", Toast.LENGTH_SHORT).show()
+        Toast.makeText(activity, "Email sent successfully", Toast.LENGTH_SHORT).show()
     }
 
     override fun onResetPasswordFailed(throwable: Throwable) {

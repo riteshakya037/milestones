@@ -32,7 +32,7 @@ class MainPresenterImpl
             if (it is NoSuchElementException) {
                 view.createNewGoal()
             } else {
-                view.showInAppError(it.message!!)
+                it.message?.let { message -> view.showInAppError(message) }
             }
         }))
     }

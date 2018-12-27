@@ -63,8 +63,7 @@ class CustomTextDatePicker : ConstraintLayout {
         setEnabled(isEnabled)
         customEdtText.setOnClickListener {
             val calendar = GregorianCalendar()
-            val datePickerDialog = DatePickerDialog(context,
-                    AlertDialog.THEME_HOLO_LIGHT, { _, year, month, dayOfMonth ->
+            val datePickerDialog = DatePickerDialog(context, { _, year, month, dayOfMonth ->
                 mDate = DateTime(year, month + 1, dayOfMonth, 0, 0)
                 setDate()
             }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),

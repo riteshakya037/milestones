@@ -11,6 +11,7 @@ import com.ydl.android.di.components.ApplicationComponent
 import com.ydl.android.utils.combineLatest
 import com.ydl.android.utils.navigation.Navigator
 import com.ydl.android.utils.ui.UIHelper
+import com.ydl.android.views.components.PromptDialog
 import com.ydl.android.views.helpers.DialogUtils
 import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
@@ -44,6 +45,19 @@ abstract class BaseFragment<T> : Fragment() {
         injectFragment(component)
         initViews()
     }
+
+    fun Fragment.showDialogPrompt(title: String, description: String, actionName: String, onComplete: () -> Unit = {}, onCancel: () -> Unit = {}) {
+        val promptDialog = PromptDialog.Builder(context!!).setTitle(title)
+                .setDescription(description)
+                .setAction(actionName)
+                .setOnDialogListener {
+                    onComplete()
+                }
+                .create()
+        promptDialog.setOnDismissListener { onCancel() }
+        promptDialog.show()
+    }
+
 
     abstract fun injectFragment(component: T)
 

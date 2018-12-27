@@ -115,6 +115,7 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/mainScreenCreateGoal"
+            style="@style/Widget.MaterialComponents.FloatingActionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/vertical_margin"
@@ -123,7 +124,8 @@
             app:fabCustomSize="70dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:tint="#fff" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -159,6 +161,7 @@
                 android:layout_marginBottom="@dimen/vertical_margin_large"
                 android:gravity="end"
                 android:text="Log out"
+                android:textSize="24dp"
                 app:layout_constraintBottom_toBottomOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.navigation.NavigationView>

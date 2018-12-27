@@ -39,7 +39,18 @@ class MainFragment : BaseFragment<MainComponent>(), MainContract.View {
 
         mainScreenMenuBtn.setOnClickListener { mainScreenDrawer.openDrawer(GravityCompat.START) }
         navSettings.setOnClickListener { navigator.navigateToSettingScreen(context!!) }
-        navLogout.setOnClickListener { presenter.logOut() }
+
+
+        navLogout.setOnClickListener {
+            showDialogPrompt(
+                    title = "Logout",
+                    description = "Please confirm if you would like to logout",
+                    actionName = "Logout",
+                    onComplete = {
+                        presenter.logOut()
+                    }
+            )
+        }
     }
 
     override fun showInAppError(message: String) {

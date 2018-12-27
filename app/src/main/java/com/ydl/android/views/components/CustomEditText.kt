@@ -11,7 +11,6 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.LinearLayout
 import com.ydl.android.R
-import com.ydl.android.utils.validation.ValidationResult
 import kotlinx.android.synthetic.main.custom_edit_text.view.*
 
 
@@ -38,8 +37,8 @@ class CustomEditText : LinearLayout {
         val typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.CustomEditText)
         init(context,
                 nextFocusId = typedArray.getInt(R.styleable.CustomEditText_android_nextFocusForward, 0),
-                hintText = typedArray.getString(R.styleable.CustomEditText_android_hint),
-                labelText = typedArray.getString(R.styleable.CustomEditText_android_label),
+                hintText = typedArray.getString(R.styleable.CustomEditText_android_hint) ?: "",
+                labelText = typedArray.getString(R.styleable.CustomEditText_android_label) ?: "",
                 inputType = typedArray.getInt(R.styleable.CustomEditText_android_inputType, 0),
                 isEnabled = typedArray.getBoolean(R.styleable.CustomEditText_android_enabled, true),
                 marginBottom = typedArray.getBoolean(R.styleable.CustomEditText_hasBottomPadding, true))
@@ -76,7 +75,7 @@ class CustomEditText : LinearLayout {
     override fun onFocusChanged(gainFocus: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
         if (gainFocus) {
             customEdtText.requestFocus()
-            customEdtText.setSelection(customEdtText.text.length)
+            customEdtText.setSelection(customEdtText.text!!.length)
         }
         super.onFocusChanged(gainFocus, direction, previouslyFocusedRect)
     }

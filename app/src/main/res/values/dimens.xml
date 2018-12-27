@@ -15,4 +15,8 @@
     <dimen name="expanded_toolbar_height">120dp</dimen>
     <dimen name="horizontal_margin_half">12dp</dimen>
     <dimen name="expanded_toolbar_size">136dp</dimen>
+    <dimen name="activity_vertical_margin">24dp</dimen>
+    <dimen name="activity_vertical_margin_medium_small">12dp</dimen>
+    <dimen name="activity_vertical_margin_small">12dp</dimen>
+    <dimen name="activity_vertical_margin_medium">16dp</dimen>
 </resources>

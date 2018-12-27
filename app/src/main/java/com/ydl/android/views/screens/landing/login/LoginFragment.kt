@@ -42,7 +42,7 @@ class LoginFragment : BaseFragment<LoginComponent>(), LoginContract.View {
         addValidationList(loginEmail.addValidity(EmailValidation("Invalid Email")))
         addValidationList(loginPassword.addValidity(PasswordValidation("Invalid Password")))
         loginBtn.setOnClickListener {
-            presenter.login(loginEmail.text, loginPassword.text)
+            presenter.login(loginEmail.text.toString(), loginPassword.text.toString())
         }
     }
 

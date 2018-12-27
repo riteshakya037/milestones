@@ -50,11 +50,11 @@
 
         <com.ydl.android.views.components.CustomTabLayout
             android:id="@+id/landingTabLayout"
+            style="@style/Widget.MaterialComponents.TabLayout.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
-            android:background="@drawable/background_toolbar"
-            app:tabBackground="?selectableItemBackgroundBorderless"
+            android:background="?selectableItemBackgroundBorderless"
             app:tabIndicatorColor="@android:color/white"
             app:tabIndicatorHeight="6dp"
             app:tabMode="scrollable"

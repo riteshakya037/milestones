@@ -51,8 +51,8 @@ class RegisterFragment : BaseFragment<RegisterComponent>(), RegisterContract.Vie
     }
 
     private fun registerUser() {
-        val email: String = registerEmail.text
-        val password: String = registerPassword.text
+        val email: String = registerEmail.text.toString()
+        val password: String = registerPassword.text.toString()
         mPresenter.register(email, password)
     }
 

@@ -34,6 +34,10 @@
         <activity
             android:name="com.riteshakya.milestones.views.screens.setting.SettingActivity"
             android:windowSoftInputMode="adjustPan" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="1dc445084c1cf3898e59f8478cad4fb29af7308a"
+            />
     </application>
 
 </manifest>

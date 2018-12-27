@@ -1,3 +1,17 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        // These docs use an open ended version so that our plugin
+        // can be updated quickly in response to Android tooling updates
+
+        // We recommend changing it to the latest version from our changelog:
+        // https://docs.fabric.io/android/changelog.html#fabric-gradle-plugin
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
@@ -6,6 +20,11 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
 enum BuildType {
     DEBUG,
     RELEASE
@@ -66,6 +85,8 @@ android {
         release {
             signingConfig signingConfigs.release
             minifyEnabled false
+            ext.betaDistributionReleaseNotesFilePath = "./release_notes.txt"
+            ext.betaDistributionGroupAliases = "milestones"
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             resValue "string", "app_name", getAppName(BuildType.RELEASE)
         }
@@ -98,7 +119,9 @@ dependencies {
 
     kapt libraries.daggerCompiler
     kaptTest libraries.daggerCompiler
-
+    implementation('com.crashlytics.sdk.android:crashlytics:2.9.8@aar') {
+        transitive = true;
+    }
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 }

@@ -1,11 +1,13 @@
 package com.riteshakya.milestones
 
 import android.app.Application
+import com.crashlytics.android.Crashlytics
 import com.google.firebase.FirebaseApp
 import com.google.firebase.database.FirebaseDatabase
 import com.riteshakya.milestones.di.components.ApplicationComponent
 import com.riteshakya.milestones.di.components.DaggerApplicationComponent
 import com.riteshakya.milestones.di.modules.ApplicationModule
+import io.fabric.sdk.android.Fabric
 import timber.log.Timber
 
 class MilestonesApplication : Application() {
@@ -29,6 +31,7 @@ class MilestonesApplication : Application() {
             Timber.plant(Timber.DebugTree())
         } else {
             // Plant necessary trees
+            Fabric.with(this, Crashlytics())
         }
     }
 

@@ -15,6 +15,7 @@ import com.ydl.android.views.components.PromptDialog
 import com.ydl.android.views.helpers.DialogUtils
 import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
+import timber.log.Timber
 
 abstract class BaseFragment<T> : Fragment() {
 
@@ -108,8 +109,14 @@ abstract class BaseFragment<T> : Fragment() {
         initializeValidationObservers()
     }
 
+    lateinit var subscribe: Disposable
+
     private fun initializeValidationObservers() {
-        observerList.combineLatest { it: List<Boolean> ->
+        if (::subscribe.isInitialized && !subscribe.isDisposed) {
+            subscribe.dispose()
+        }
+        subscribe = observerList.combineLatest { it: List<Boolean> ->
+            Timber.e(it.toString())
             var output = true
             for (result: Boolean in it)
                 if (!result && output) {
